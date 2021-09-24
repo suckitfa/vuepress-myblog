@@ -20,7 +20,7 @@ module.exports = {
           {
             title:'前端基础',
             children:[
-              ['/FE/test','测试']
+              ['/FE/基础/test','测试']
             ]
           }
         ]
