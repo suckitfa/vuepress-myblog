@@ -8,5 +8,5 @@ actionLink: /FE/
 features:
 - title: FE - 前端
   details: 前端基础知识整理归纳
-footer: MIT Licensed | Copyright © 2021.09.24-present Mulander-J
+footer: MIT Licensed | Copyright © 2021.09.24-present Cooper Tang
 ---
