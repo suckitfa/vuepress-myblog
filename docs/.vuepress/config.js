@@ -11,11 +11,20 @@ module.exports = {
     themeConfig: {
         theme:"vuepress-theme-reco",
       nav:[ // 导航栏配置
-        {text: '前端基础', link: '/accumulate/' },
+        {text: '前端基础', link: '/FE/' },
         {text: '算法题库', link: '/algorithm/'},
-        {text: '微博', link: 'https://baidu.com'}      
+        {text: 'github', link: 'https://suckitfa.github.com'}      
       ],
-      sidebar: 'auto', // 侧边栏配置
+      sidebar: {
+        '/FE/':[
+          {
+            title:'前端基础',
+            children:[
+              ['/FE/test','测试']
+            ]
+          }
+        ]
+      }, // 侧边栏配置
       sidebarDepth: 2, // 侧边栏显示2级
     }
   };
