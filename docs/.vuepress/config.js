@@ -16,8 +16,20 @@ module.exports = {
       ],
       sidebar: {
         '/FE/':[
-          ['/FE/','前端基础目录'],
-          ['/FE/基础/test','测试']
+          {
+            title:"JavaScript基础",
+            children:[
+              ['/FE/JavaScript基础/this问题','this问题'],
+              ['/FE/JavaScript基础/异步问题','异步问题'],
+              ['/FE/JavaScript基础/Promise','Promise问题']
+            ]
+          },
+          {
+            title:"数据结构与算法",
+            children:[
+              ['/FE/数据结构与算法/array','数组']
+            ]
+          }
         ]
       }, // 侧边栏配置
       sidebarDepth: 2, // 侧边栏显示2级
