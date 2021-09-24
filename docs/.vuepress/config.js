@@ -17,6 +17,7 @@ module.exports = {
       ],
       sidebar: {
         '/FE/':[
+          ['/FE/','前端基础目录'],
           {
             title:'前端基础',
             children:[
