@@ -19,6 +19,7 @@ module.exports = {
           {
             title:"JavaScript基础",
             children:[
+              ['/FE/JavaScript基础/变量提升','变量提升'],
               ['/FE/JavaScript基础/this问题','this问题'],
               ['/FE/JavaScript基础/异步问题','异步问题'],
               ['/FE/JavaScript基础/Promise','Promise问题']
