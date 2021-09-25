@@ -18,7 +18,8 @@ module.exports = {
             '/FE/': [{
                     title: "JavaScript基础",
                     children: [
-                        ['/FE/JavaScript基础/几种继承写法', '几种继承写法'],
+                        ['/FE/JavaScript基础/01-原型链', '01-原型链'],
+                        ['/FE/JavaScript基础/02-几种继承写法', '02-几种继承写法']
                     ]
                 },
                 {
