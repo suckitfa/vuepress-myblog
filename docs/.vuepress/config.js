@@ -14,6 +14,7 @@ module.exports = {
         nav: [ 
             { text: 'FE-前端', link: '/FE/' },
             {text:'算法与数据结构',link:'/ALGO/'},
+            {text:"心理认知",link:'/心理认知/'},
             { text: 'github', link: 'https://github.com/suckitfa' }
         ],
         sidebar: {
@@ -32,7 +33,14 @@ module.exports = {
                         ['/ALGO/01-数组', '01-数组']
                     ]
                 }
-            ]
+            ],
+            '/心理认知/':[
+                {
+                    title:"心理认知",
+                    children:[
+                        ['/心理认知/01-摘抄木木','木木朋友圈']
+                    ]
+            }]
         }, // 侧边栏配置
         sidebarDepth: 2, // 侧边栏显示2级
     }
