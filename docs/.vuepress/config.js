@@ -10,8 +10,10 @@ module.exports = {
     },
     themeConfig: {
         theme: "vuepress-theme-reco",
-        nav: [ // 导航栏配置
+        // 导航栏配置 顶部导航栏
+        nav: [ 
             { text: 'FE-前端', link: '/FE/' },
+            {text:'算法与数据结构',link:'/ALGO/'},
             { text: 'github', link: 'https://github.com/suckitfa' }
         ],
         sidebar: {
@@ -22,10 +24,12 @@ module.exports = {
                         ['/FE/JavaScript基础/02-几种继承写法', '02-几种继承写法']
                     ]
                 },
+            ],
+            '/ALGO/':[
                 {
                     title: "数据结构与算法",
                     children: [
-                        ['/FE/数据结构与算法/array', '数组']
+                        ['/ALGO/01-数组', '01-数组']
                     ]
                 }
             ]
