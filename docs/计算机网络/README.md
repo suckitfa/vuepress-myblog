@@ -27,7 +27,6 @@ SSL(Secure Socket Layer)：是Netscape公司设计的主要用于WEB的安全传
 
 服务器用私有密钥对报文解密。
 ### url到加载渲染全过程
-
 DNS域名解析。
 TCP三次握手，建立接连。
 发送HTTP请求报文。
