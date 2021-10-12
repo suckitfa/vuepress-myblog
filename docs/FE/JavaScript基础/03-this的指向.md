@@ -6,8 +6,11 @@
 
 ### 手写call
 ```js
-Function.prototype.mycall = function(thisArg) {
-    const 
+Function.prototype.mycall = function(context) {
+    const args = 
+    context.fn = this
+    const resrult = context.fn()
+    delete context.fn
 }
 ```
 ### 手写apply
