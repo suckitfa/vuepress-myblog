@@ -11,37 +11,19 @@ module.exports = {
     themeConfig: {
         theme: "vuepress-theme-reco",
         // 导航栏配置 顶部导航栏
-        nav: [ 
+        nav: [
             { text: 'FE-前端', link: '/FE/' },
-            {text:'算法与数据结构',link:'/ALGO/'},
-            {text:"心理认知",link:'/心理认知/'},
+            { text: '算法与数据结构', link: '/ALGO/' },
+            { text: "心理认知", link: '/心理认知/' },
             { text: 'github', link: 'https://github.com/suckitfa' }
         ],
         sidebar: {
-            '/FE/': [{
-                    title: "JavaScript基础",
-                    children: [
-                        ['/FE/JavaScript基础/01-原型链', '01-原型链'],
-                        ['/FE/JavaScript基础/02-几种继承写法', '02-几种继承写法']
-                    ]
-                },
-            ],
-            '/ALGO/':[
-                {
-                    title: "数据结构与算法",
-                    children: [
-                        ['/ALGO/01-数组', '01-数组'],
-                        ['/ALGO/02-二叉树','02-二叉树']
-                    ]
-                }
-            ],
-            '/心理认知/':[
-                {
-                    title:"心理认知",
-                    children:[
-                        ['/心理认知/01-摘抄木木','木木朋友圈']
-                    ]
-            }]
+            '/前端基础/': [{
+                title: "JavaScript基础",
+                children: [
+                    ['/前端基础/JavaScript基础/01-原型链', '01-原型链'],
+                ]
+            }, ],
         }, // 侧边栏配置
         sidebarDepth: 2, // 侧边栏显示2级
     }
