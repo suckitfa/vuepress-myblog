@@ -1,6 +1,6 @@
 ### JavaScript的基本数据类型及其相关问题
 
-### Javascript内置7中数据类型
+### Javascript的数据类型
 
 1. 基本数据类型
 

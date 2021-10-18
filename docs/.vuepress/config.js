@@ -18,7 +18,7 @@ module.exports = {
             '/前端基础/': [{
                 title: "JavaScript基础",
                 children: [
-                    ['/前端基础/JavaScript基础/01-原型链', '01-原型链'],
+                    ['/前端基础/JavaScript基础/01-JavaScript数据类型及其相关问题.md', '01-JavaScript数据类型及其相关问题'],
                 ]
             }, ],
         }, // 侧边栏配置

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>JavaScript的基本数据类型及其相关问题 | Guangyuan&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/img/logo.jpg">
+    <meta name="description" content="广园的个人博客">
+    
+    <link rel="preload" href="/assets/css/0.styles.a8c216e1.css" as="style"><link rel="preload" href="/assets/js/app.d6368cb6.js" as="script"><link rel="preload" href="/assets/js/2.463d1cb8.js" as="script"><link rel="preload" href="/assets/js/8.a0e35f3d.js" as="script"><link rel="prefetch" href="/assets/js/3.a4b193a1.js"><link rel="prefetch" href="/assets/js/4.dec8963b.js"><link rel="prefetch" href="/assets/js/5.e9f5dcc1.js"><link rel="prefetch" href="/assets/js/6.4c81aa46.js"><link rel="prefetch" href="/assets/js/7.e327cd51.js"><link rel="prefetch" href="/assets/js/9.ccaa2416.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a8c216e1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Guangyuan's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/前端基础/" class="nav-link">
+  FE-前端
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/前端基础/" class="nav-link">
+  FE-前端
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JavaScript基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/前端基础/JavaScript基础/01-JavaScript数据类型及其相关问题.html" class="active sidebar-link">01-JavaScript数据类型及其相关问题</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="javascript的基本数据类型及其相关问题"><a href="#javascript的基本数据类型及其相关问题" class="header-anchor">#</a> JavaScript的基本数据类型及其相关问题</h3> <h3 id="javascript的数据类型"><a href="#javascript的数据类型" class="header-anchor">#</a> Javascript的数据类型</h3> <ol><li><p>基本数据类型</p> <blockquote><p>存储的都是值，没有函数可以调用, 而引用类型存储的是地址。</p></blockquote> <div class="language-js extra-class"><pre class="language-js"><code><span class="token number">1.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">//Uncaught SyntaxError: Invalid or unexpected token</span>
+</code></pre></div></li></ol> <ul><li><p>string</p></li> <li><p>number</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// 特殊的情况</span>
+<span class="token keyword">typeof</span> <span class="token number">NaN</span> <span class="token comment">// number</span>
+<span class="token number">NaN</span> <span class="token operator">===</span> <span class="token number">NaN</span> <span class="token comment">// false</span>
+<span class="token comment">// JS中的数字存储为IEEE 754标准，全部用浮点数存储</span>
+
+</code></pre></div></li> <li><p>boolean</p></li> <li><p>null</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">typeof</span> <span class="token keyword">null</span> <span class="token comment">// 'object'</span>
+</code></pre></div></li> <li><p>undefined</p></li> <li><p>bigint</p></li> <li><p>symbol</p></li></ul> <ol start="2"><li>引用数据类型</li></ol> <ul><li>Object</li></ul> <h3 id="问题一-如何判断数据类型"><a href="#问题一-如何判断数据类型" class="header-anchor">#</a> 问题一：如何判断数据类型?</h3> <ol><li><p>typeof 方法，适用于<strong>基本数据类型的判断</strong>，但是null为object</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">typeof</span> <span class="token number">1</span> <span class="token comment">// 'number'</span>
+<span class="token keyword">typeof</span> <span class="token boolean">false</span> <span class="token comment">// 'boolean'</span>
+<span class="token keyword">typeof</span> <span class="token string">'hello'</span> <span class="token comment">// 'string'</span>
+<span class="token comment">// 注意typeof对于未申明的变量也会出现undefined</span>
+<span class="token keyword">typeof</span> <span class="token keyword">undefined</span> <span class="token comment">// 'undefined'</span>
+<span class="token keyword">typeof</span> <span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// 'symbol'</span>
+</code></pre></div></li> <li><p>instanceof ，适用于对象，用于判断<code>Son instanceof Father</code>，son是否为Father的实例,基于原型链的原理。</p> <p>MDN的解释：验证Father原型是否在Son的原型链上。</p> <blockquote><p>缺点就是，在原型链上的都会认为是实例。 因此不用来辨别具体是哪个对象的实例。</p></blockquote> <p>MDN解释： **<code>Symbol.hasInstance</code>**用于判断某对象是否为某构造器的实例。因此你可以用它自定义 [<code>instanceof</code>] 操作符在某个类上的行为。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Symbol.hasInstance可以让我们自定义,instanceof的行为</span>
+<span class="token keyword">class</span> <span class="token class-name">PrimitiveString</span> <span class="token punctuation">{</span>
+  <span class="token keyword">static</span> <span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>hasInstance<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">typeof</span> x <span class="token operator">===</span> <span class="token string">'string'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'hello world'</span> <span class="token keyword">instanceof</span> <span class="token class-name">PrimitiveString</span><span class="token punctuation">)</span> <span class="token comment">// true</span>
+</code></pre></div><h3 id="简单实现instanceof原理-链表的遍历"><a href="#简单实现instanceof原理-链表的遍历" class="header-anchor">#</a> 简单实现instanceof原理：链表的遍历</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// son为实例</span>
+<span class="token comment">// father为一个构造函数</span>
+<span class="token comment">// son沿着原型链向下找，知道null(原型链的顶部)</span>
+<span class="token comment">// 思路：其实这就是一个链表遍历的过程.</span>
+<span class="token keyword">function</span> <span class="token function">myinstanceof</span><span class="token punctuation">(</span><span class="token parameter">son<span class="token punctuation">,</span>father</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fatherPrototype <span class="token operator">=</span> father<span class="token punctuation">.</span>prototype
+  <span class="token keyword">let</span> sonProto <span class="token operator">=</span> son<span class="token punctuation">.</span>__proto__
+  <span class="token keyword">while</span><span class="token punctuation">(</span>sonProto <span class="token operator">!==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    	<span class="token keyword">if</span><span class="token punctuation">(</span>sonProto <span class="token operator">==</span> fatherPrototype<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token comment">// 链表的遍历</span>
+    sonProto <span class="token operator">=</span> sonProto<span class="token punctuation">.</span>__proto__
+  <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">testFunc</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token function">myinstanceof</span><span class="token punctuation">(</span>testFunc<span class="token punctuation">,</span>Function<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>result<span class="token punctuation">)</span>
+</code></pre></div></li> <li><p>Object.prototype.toString.call</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token operator">&gt;</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token string">'[object Number]'</span>
+<span class="token operator">&gt;</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+<span class="token string">'[object Boolean]'</span>
+<span class="token operator">&gt;</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token function">Symbol</span><span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token string">'[object Symbol]'</span>
+<span class="token operator">&gt;</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+<span class="token string">'[object Null]'</span>
+<span class="token operator">&gt;</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">undefined</span><span class="token punctuation">)</span>
+<span class="token string">'[object Undefined]'</span>
+<span class="token comment">// 因此可以基于以上方法，封装一个函数来判断数据数据类型</span>
+</code></pre></div></li></ol> <h3 id="问题二-falsy和truthy是啥意思"><a href="#问题二-falsy和truthy是啥意思" class="header-anchor">#</a> 问题二：falsy和truthy是啥意思？</h3> <blockquote><p>概念：中文翻译过来对应为:虚值和真值，也就对应boolean类型的true和false</p></blockquote> <h3 id="falsy对应如下"><a href="#falsy对应如下" class="header-anchor">#</a> falsy对应如下</h3> <ul><li>false</li> <li>null</li> <li>undefined</li> <li>'' 和&quot;&quot; (空字符串)</li> <li>NaN</li> <li>0</li> <li>0n （bigint）</li> <li>document.all(MDN上出现的)</li></ul> <h3 id="除falsy之外的都是truthy"><a href="#除falsy之外的都是truthy" class="header-anchor">#</a> 除falsy之外的都是truthy</h3> <h3 id="问题三-两等和三等的区别"><a href="#问题三-两等和三等的区别" class="header-anchor">#</a> 问题三:两等和三等的区别</h3> <p>相同点：双方都是对象时，只有指向同一对象才会相等 （地址相同才是相等）</p> <p>不同：</p> <ol><li><p><strong>=== 要求双方类型相同并且值相等</strong></p></li> <li><p>== 要求在比较双方类型不同的时候会进行类型转换，先转换为相同类型，再做比较。</p></li> <li><p>先看是否为null和undefiend, null == undefined // true</p></li></ol> <p>操作数类型不同的时候：</p> <ol><li>string和number , 将string --&gt; number</li> <li>boolean, 将boolean --- &gt; number</li> <li>如果是对象，另一个是number和string, 调用valueOf() 和toString方法将对象转为原始值</li></ol> <div class="language-js extra-class"><pre class="language-js"><code><span class="token number">NaN</span> <span class="token operator">===</span> <span class="token number">NaN</span> <span class="token comment">// false</span>
+<span class="token number">NaN</span> <span class="token operator">==</span> <span class="token number">NaN</span> <span class="token comment">// false</span>
+</code></pre></div><h3 id="问题四-数据类型是如何自动转换的"><a href="#问题四-数据类型是如何自动转换的" class="header-anchor">#</a> 问题四：数据类型是如何自动转换的?</h3> <ul><li><p>转为boolean</p> <p>除falsy值外，其余为真</p> <blockquote><p>0 空字符串 undefiend null NaN 0 0n document.all</p></blockquote></li> <li><p>对象转为string</p> <ol><li>[Symbol.toPromitive]</li> <li>valueOf</li> <li>toString</li></ol> <p>依次调用以上定义在对象中的方法，如果返回了基本类型的值，就停止，则对应的基本类型之为返回的值。否则，报错。</p> <p>MDN解释：<code>**Symbol.toPrimitive**</code> 是一个内置的 Symbol 值，它是作为对象的函数值属性存在的，当一个对象转换为对应的原始值时，会调用此函数。</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">0</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token string">'1'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">[</span>Symbol<span class="token punctuation">.</span>toPrimitive<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token number">2</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token number">1</span> <span class="token operator">+</span> a <span class="token comment">// =&gt; 3</span>
+</code></pre></div></li></ul> <h3 id="参考资料"><a href="#参考资料" class="header-anchor">#</a> 参考资料</h3> <ul><li>https://lienjack.github.io/Blog/knowledge/js/1.type.html#%E7%B1%BB%E5%9E%8B%E7%A7%8D%E7%B1%BB</li> <li>https://yuchengkai.cn/docs/frontend/#%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B</li> <li>https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Equality</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.d6368cb6.js" defer></script><script src="/assets/js/2.463d1cb8.js" defer></script><script src="/assets/js/8.a0e35f3d.js" defer></script>
+  </body>
+</html>
