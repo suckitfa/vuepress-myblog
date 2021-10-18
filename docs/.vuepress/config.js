@@ -12,10 +12,7 @@ module.exports = {
         theme: "vuepress-theme-reco",
         // 导航栏配置 顶部导航栏
         nav: [
-            { text: 'FE-前端', link: '/FE/' },
-            { text: '算法与数据结构', link: '/ALGO/' },
-            { text: "心理认知", link: '/心理认知/' },
-            { text: 'github', link: 'https://github.com/suckitfa' }
+            { text: 'FE-前端', link: '/前端基础/' },
         ],
         sidebar: {
             '/前端基础/': [{
