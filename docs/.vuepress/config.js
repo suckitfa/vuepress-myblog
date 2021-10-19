@@ -22,6 +22,14 @@ module.exports = {
                     ['/前端基础/JavaScript基础/02-数据拷贝.md', '02-数据拷贝']
                 ]
             }, ],
+            '/开发中遇到的问题/':[
+                {
+                    title:'开发中遇到的问题',
+                    children:[
+                        ['/前端基础/开发中遇到的问题/01-forEach中的async&await.md', '01-forEach中的async&await'],
+                    ]
+                }
+            ]
         }, // 侧边栏配置
         sidebarDepth: 2, // 侧边栏显示2级
     }
