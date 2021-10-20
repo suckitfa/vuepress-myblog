@@ -3,3 +3,7 @@
 ### 大佬们的博客
 - http://www.conardli.top/blog/
 - http://www.jimilee.tech/
+
+
+### 有意思的网站
+- https://go123.live/
