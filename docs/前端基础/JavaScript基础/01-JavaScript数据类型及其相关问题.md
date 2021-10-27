@@ -149,13 +149,12 @@
 
 2. == 要求在比较双方类型不同的时候会进行类型转换，先转换为相同类型，再做比较。
 
-1. 先看是否为null和undefiend, null == undefined // true
-
+1. 两个都为对象，引用同一地址的时候为真.
+2. 先看是否为null和undefiend, null == undefined // true
 操作数类型不同的时候：
-
-1. string和number , 将string --> number
-2. boolean, 将boolean --- > number
-3. 如果是对象，另一个是number和string, 调用valueOf() 和toString方法将对象转为原始值
+3. string和number , 将string --> number
+4. boolean和number, 将boolean --- > number(0|1)
+5. 如果是一个是对象，另一个是number和string, 调用valueOf() 和toString方法将对象转为原始值
 
 ```js
 NaN === NaN // false
