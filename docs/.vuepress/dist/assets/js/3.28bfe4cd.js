@@ -1,5 +1,0 @@
-<<<<<<< HEAD:docs/.vuepress/dist/assets/js/3.28bfe4cd.js
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{338:function(t,e,n){},369:function(t,e,n){"use strict";n(338)},390:function(t,e,n){"use strict";n.r(e);var i={functional:!0,props:{type:{type:String,default:"tip"},text:String,vertical:{type:String,default:"top"}},render:function(t,e){var n=e.props,i=e.slots;return t("span",{class:["badge",n.type],style:{verticalAlign:n.vertical}},n.text||i().default)}},r=(n(369),n(45)),a=Object(r.a)(i,void 0,void 0,!1,null,"76a02c50",null);e.default=a.exports}}]);
-=======
-(window.webpackJsonp=window.webpackJsonp||[]).push([[3],{344:function(t,e,n){},374:function(t,e,n){"use strict";n(344)},395:function(t,e,n){"use strict";n.r(e);var i={functional:!0,props:{type:{type:String,default:"tip"},text:String,vertical:{type:String,default:"top"}},render:function(t,e){var n=e.props,i=e.slots;return t("span",{class:["badge",n.type],style:{verticalAlign:n.vertical}},n.text||i().default)}},r=(n(374),n(46)),a=Object(r.a)(i,void 0,void 0,!1,null,"ee04238a",null);e.default=a.exports}}]);
->>>>>>> 5d968bdd3dc10662fb62aef88e1ed51545fc9fdf:docs/.vuepress/dist/assets/js/3.f93368ac.js

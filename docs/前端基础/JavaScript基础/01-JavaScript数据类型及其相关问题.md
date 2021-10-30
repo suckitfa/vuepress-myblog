@@ -3,51 +3,52 @@
 ### Javascript的数据类型
 
 1. 基本数据类型
-
-   > 存储的都是值，没有函数可以调用, 而引用类型存储的是地址。
-
-   ```js
-   1.toString() //Uncaught SyntaxError: Invalid or unexpected token
-   ```
-
-   
-
+> 存储的都是值
 - string
-
 - number
-
-  ```js
+```js
   // 特殊的情况
   typeof NaN // number
   NaN === NaN // false
   // JS中的数字存储为IEEE 754标准，全部用浮点数存储
   
-  ```
-
+```
 - boolean
-
 - null
-
-  ```js
-  typeof null // 'object'
-  ```
-
+```js
+typeof null // 'object'
+```
 - undefined
-
 - bigint
-
 - symbol
-
 2. 引用数据类型
-
 - Object
 
+### 引用类型和基本数据类型区别
+传递值的时候（函数传参，赋值等），引用类型传递的值是"地址"，这个地址指向真正的值,而基本数据类型传递的是真正的值。如下示意图：
+1. 引用数据类型（普通对象）
+```js
+let obj1 = {
+  age:19
+}
+let obj2 = obj1
+obj2.age = 99
+```
+![](./img/obj-stack.png)
+
+2. 基本数据类型（数字：number）
+```js
+let obj1 = 1
+let obj2 = obj1
+obj2 = 2
+```
+![](./img/primitive-stack.png)
   
 
 ### 问题一：如何判断数据类型?
 
-1. typeof 方法，适用于**基本数据类型的判断**，但是null为object
-
+1. typeof 方法，适用于**基本数据类型的判断**，但是typeof null的结果为object
+> null不是对象，传统bug
    ```js
    typeof 1 // 'number'
    typeof false // 'boolean'
@@ -82,12 +83,15 @@
    ```js
    // son为实例
    // father为一个构造函数
-   // son沿着原型链向下找，知道null(原型链的顶部)
+   // son沿着自己的原型链向下找，直到null(原型链的顶部)
    // 思路：其实这就是一个链表遍历的过程.
    function myinstanceof(son,father) {
+     // 基本数据类型直接返回false
+     if(typeof son !== 'object' || son == null) return false;
      const fatherPrototype = father.prototype
      let sonProto = son.__proto__
      while(sonProto !== null) {
+       // 原型链的尽头是null
        	if(sonProto == fatherPrototype) {
            return true;
          }

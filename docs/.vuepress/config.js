@@ -20,15 +20,11 @@ module.exports = {
                 children: [
                     ['/前端基础/JavaScript基础/01-JavaScript数据类型及其相关问题.md', '01-JavaScript数据类型及其相关问题'],
                     ['/前端基础/JavaScript基础/02-数据拷贝.md', '02-数据拷贝'],
-                    ['/前端基础/JavaScript基础/03-面向对象编程.md', '03-面向对象编程']
+                    ['/前端基础/JavaScript基础/03-面向对象编程.md', '03-面向对象编程'],
+                    ['/前端基础/JavaScript基础/04-this指向.md', '04-this指向.md'],
+                    ['/前端基础/JavaScript基础/05-js模块化.md', '05-js模块化.md'],
                 ]
             }, ],
-            '/开发中遇到的问题/': [{
-                title: '开发中遇到的问题',
-                children: [
-                    ['/前端基础/开发中遇到的问题/01-forEach中的async&await.md', '01-forEach中的async&await'],
-                ]
-            }]
         }, // 侧边栏配置
         sidebarDepth: 2, // 侧边栏显示2级
     }
