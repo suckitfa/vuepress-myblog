@@ -109,28 +109,37 @@ obj2 = 2
    
 
 3. Object.prototype.toString.call
-
-   ```js
-   > Object.prototype.toString.call(1)
-   '[object Number]'
-   > Object.prototype.toString.call(false)
-   '[object Boolean]'
-   > Object.prototype.toString.call(Symbol('1'))
-   '[object Symbol]'
-   > Object.prototype.toString.call(null)
-   '[object Null]'
-   > Object.prototype.toString.call(undefined)
-   '[object Undefined]'
+```js
+   // --------------------------------------------------
    // 因此可以基于以上方法，封装一个函数来判断数据数据类型
-   ```
+   // https://javascript.ruanyifeng.com/stdlib/object.html#toc9
+   // 看下阮一峰老师的优雅实现
+   function type(val) {
+    const result = Object.prototype.toString.call(val);
+    // 这个正则，扣出数据类型名字
+    return result.match(/\[object (.*?)\]/)[1].toLowerCase();
+    }
+    [
+    'String',
+    'Boolean',
+    'Number',
+    'Undefined',
+    'Null',
+    'Symbol',
+    'Boolean',
+    'Function',
+    'RegExp'
+    ].forEach(item => {
+      // 构造出 isNumber...方法，放在type中， type看成Function的实例
+    type['is' + item] = (val) => {
+        return type(val) === item.toLowerCase();
+    }});
+  ```
 
-   
 
 ### 问题二：falsy和truthy是啥意思？
-
 > 概念：中文翻译过来对应为:虚值和真值，也就对应boolean类型的true和false
-
-### falsy对应如下
+### falsy对应
 
 - false 
 - null
@@ -152,12 +161,15 @@ obj2 = 2
 1. **=== 要求双方类型相同并且值相等**
 
 2. == 要求在比较双方类型不同的时候会进行类型转换，先转换为相同类型，再做比较。
-
 1. 两个都为对象，引用同一地址的时候为真.
+(基本类型vs基本类型， 基本类型vs引用类型)
 2. 先看是否为null和undefiend, null == undefined // true
 操作数类型不同的时候：
+
+两个操作数类型不同
 3. string和number , 将string --> number
-4. boolean和number, 将boolean --- > number(0|1)
+4. 其中一个boolean, 将boolean ---> number , 实际：true = 1 false = 0
+
 5. 如果是一个是对象，另一个是number和string, 调用valueOf() 和toString方法将对象转为原始值
 
 ```js
@@ -170,12 +182,11 @@ NaN == NaN // false
 ### 问题四：数据类型是如何自动转换的?
 
 - 转为boolean
-
   除falsy值外，其余为真
 
   > 0 空字符串 undefiend null NaN 0 0n document.all
 
-- 对象转为string
+- 对象转为string的流程
 
   1. [Symbol.toPromitive]
   2. valueOf
@@ -209,3 +220,4 @@ NaN == NaN // false
 - https://lienjack.github.io/Blog/knowledge/js/1.type.html#%E7%B1%BB%E5%9E%8B%E7%A7%8D%E7%B1%BB
 - https://yuchengkai.cn/docs/frontend/#%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B
 - https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Equality
+- https://javascript.ruanyifeng.com/stdlib/object.html#toc9
