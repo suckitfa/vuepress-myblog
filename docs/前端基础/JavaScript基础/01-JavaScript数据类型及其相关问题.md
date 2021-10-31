@@ -43,8 +43,8 @@ let obj2 = obj1
 obj2 = 2
 ```
 ![](./img/primitive-stack.png)
-  
 
+## 数据类型的判断及其相关原理
 ### 问题一：如何判断数据类型?
 
 1. typeof 方法，适用于**基本数据类型的判断**，但是typeof null的结果为object
@@ -64,9 +64,10 @@ obj2 = 2
 
    > 缺点就是，在原型链上的都会认为是实例。 因此不用来辨别具体是哪个对象的实例。
 
-   MDN解释： **`Symbol.hasInstance`**用于判断某对象是否为某构造器的实例。因此你可以用它自定义 [`instanceof`] 操作符在某个类上的行为。
+### 问：instanceof是否可以判断基本类型?
+可以的,MDN解释： **`Symbol.hasInstance`**用于判断某对象是否为某构造器的实例。因此你可以用它自定义 [`instanceof`] 操作符在某个类上的行为。
 
-   ```js
+```js
    // Symbol.hasInstance可以让我们自定义,instanceof的行为
    class PrimitiveString {
      static [Symbol.hasInstance](x) {
@@ -74,9 +75,8 @@ obj2 = 2
      }
    }
    console.log('hello world' instanceof PrimitiveString) // true
-   ```
+```
 
-   
 
    ### 简单实现instanceof原理：链表的遍历
 
@@ -134,13 +134,22 @@ obj2 = 2
     type['is' + item] = (val) => {
         return type(val) === item.toLowerCase();
     }});
-  ```
+```
+### 类型转换
 
+
+
+### 类型转换只能有三种
+
+- 转为数字
+- 转为boolean
+- string
+
+![image-20211031211541606](./img/type-change.png)
 
 ### 问题二：falsy和truthy是啥意思？
 > 概念：中文翻译过来对应为:虚值和真值，也就对应boolean类型的true和false
 ### falsy对应
-
 - false 
 - null
 - undefined
@@ -149,9 +158,7 @@ obj2 = 2
 - 0
 - 0n （bigint）
 - document.all(MDN上出现的)
-
-### 除falsy之外的都是truthy
-
+其余的都是truthy
 ### 问题三:两等和三等的区别
 
 相同点：双方都是对象时，只有指向同一对象才会相等 （地址相同才是相等）
@@ -164,34 +171,47 @@ obj2 = 2
 1. 两个都为对象，引用同一地址的时候为真.
 (基本类型vs基本类型， 基本类型vs引用类型)
 2. 先看是否为null和undefiend, null == undefined // true
-操作数类型不同的时候：
-
-两个操作数类型不同
-3. string和number , 将string --> number
-4. 其中一个boolean, 将boolean ---> number , 实际：true = 1 false = 0
-
-5. 如果是一个是对象，另一个是number和string, 调用valueOf() 和toString方法将对象转为原始值
+3. 操作数类型不同的时候：
+  - 3.1. string和number , 将string --> number
+  - 3.2. 其中一个boolean, 将boolean ---> number , 实际：true = 1 false = 0
+  - 3.3. 如果是一个是对象，另一个是number和string, 调用valueOf() 和toString方法将对象转为原始值
 
 ```js
 NaN === NaN // false
 NaN == NaN // false
+-0 == +0
+-0 === +0
+```
+### Object.is的实现
+>   与===相比，打了几个补丁
+> 1. `Object.is(NaN,NaN) // true`
+> 2. `Object.is(+0,-0) // true`
+
+```js
+if (!Object.is) {
+  Object.is = function(x, y) {
+    // SameValue algorithm
+    if (x === y) { // Steps 1-5, 7-10
+      // Steps 6.b-6.e: +0 != -0
+      // 1/0 +Infinity  -Infinity
+      return x !== 0 || 1 / x === 1 / y;
+    } else {
+      // Step 6.a: NaN == NaN
+      return x !== x && y !== y;
+    }
+  };
+}
 ```
 
-
-
 ### 问题四：数据类型是如何自动转换的?
-
 - 转为boolean
   除falsy值外，其余为真
-
   > 0 空字符串 undefiend null NaN 0 0n document.all
 
 - 对象转为string的流程
-
   1. [Symbol.toPromitive]
   2. valueOf
   3. toString
-
   依次调用以上定义在对象中的方法，如果返回了基本类型的值，就停止，则对应的基本类型之为返回的值。否则，报错。
 
   MDN解释：`**Symbol.toPrimitive**` 是一个内置的 Symbol 值，它是作为对象的函数值属性存在的，当一个对象转换为对应的原始值时，会调用此函数。
@@ -210,14 +230,21 @@ NaN == NaN // false
   }
   1 + a // => 3
   ```
-
+问：a==1&&a==2
+```js
+const a = {
+  value:0,
+  valueOf() {
+    this.value ++;
+    return this.value
+  }
+};
+if(a==1&&a==2) {
+  console.log('a==1&&a==2')
+}
+解释：
+a为对象，在与2相比时,
+两次调用调用valueOf()，在这个函数中修改value的值,返回基本数据类型
+```
   
 
-
-
-### 参考资料
-
-- https://lienjack.github.io/Blog/knowledge/js/1.type.html#%E7%B1%BB%E5%9E%8B%E7%A7%8D%E7%B1%BB
-- https://yuchengkai.cn/docs/frontend/#%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B
-- https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Equality
-- https://javascript.ruanyifeng.com/stdlib/object.html#toc9
