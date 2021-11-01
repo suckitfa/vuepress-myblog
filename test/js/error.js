@@ -139,13 +139,39 @@
 // console.log(new Test())
 
 
-function Animal(name) {
-    this.name = name;
-    this.sleep = function() {
-        console.log('sleeping!')
+// function Animal(name) {
+//     this.name = name;
+//     this.sleep = function() {
+//         console.log('sleeping!')
+//     }
+// }
+
+// function Dog(name, age) {
+
+// }
+
+// Function.prototype.mycall = function(context, ...args) {
+//     // this指向调用的函数实例
+//     context.ctxFunc = this;
+//     const result = context.ctxFunc(...args)
+//     delete context.ctxFunc
+//     return result;
+// }
+
+Function.prototype.mybind = function(context, ...args) {
+    context = context || window;
+    context.ctxFunc = this;
+    const argsArray = args;
+    return function() {
+        const result = context.ctxFunc(...argsArray);
+        delete context.ctxFunc;
+        return result;
     }
 }
 
-function Dog(name, age) {
-
+function test(name) {
+    console.log(this, name)
 }
+const obj = { name: 'JS' }
+
+const bindedTest = test.mybind(obj, 'shit')
