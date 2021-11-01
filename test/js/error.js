@@ -158,20 +158,28 @@
 //     return result;
 // }
 
-Function.prototype.mybind = function(context, ...args) {
-    context = context || window;
-    context.ctxFunc = this;
-    const argsArray = args;
-    return function() {
-        const result = context.ctxFunc(...argsArray);
-        delete context.ctxFunc;
-        return result;
-    }
-}
+// Function.prototype.mybind = function(context, ...args) {
+//     context = context || window;
+//     context.ctxFunc = this;
+//     const argsArray = args;
+//     return function() {
+//         const result = context.ctxFunc(...argsArray);
+//         delete context.ctxFunc;
+//         return result;
+//     }
+// }
 
-function test(name) {
-    console.log(this, name)
-}
-const obj = { name: 'JS' }
+// function test(name) {
+//     console.log(this, name)
+// }
+// const obj = { name: 'JS' }
 
-const bindedTest = test.mybind(obj, 'shit')
+// const bindedTest = test.mybind(obj, 'shit')
+
+let arrayLikeObject = {
+    '0': 'Apple',
+    '1': 'Orange',
+    '2': 'Bnana'
+}
+const toArray = Array.prototype.slice.call(arrayLikeObject)
+console.log(toArray instanceof Array)
