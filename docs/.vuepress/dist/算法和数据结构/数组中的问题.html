@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数组中的问题 | Guangyuan&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/img/logo.jpg">
+    <meta name="description" content="广园的个人博客">
+    
+    <link rel="preload" href="/assets/css/0.styles.a8c216e1.css" as="style"><link rel="preload" href="/assets/js/app.9b4cc0b8.js" as="script"><link rel="preload" href="/assets/js/2.c1383578.js" as="script"><link rel="preload" href="/assets/js/16.d4e83bbc.js" as="script"><link rel="prefetch" href="/assets/js/10.fd9b80ef.js"><link rel="prefetch" href="/assets/js/11.9d9e960a.js"><link rel="prefetch" href="/assets/js/12.1d60a757.js"><link rel="prefetch" href="/assets/js/13.e0920143.js"><link rel="prefetch" href="/assets/js/14.6841c509.js"><link rel="prefetch" href="/assets/js/15.c871c498.js"><link rel="prefetch" href="/assets/js/3.5de43fdf.js"><link rel="prefetch" href="/assets/js/4.e799070e.js"><link rel="prefetch" href="/assets/js/5.cfe4f5da.js"><link rel="prefetch" href="/assets/js/6.a12ad824.js"><link rel="prefetch" href="/assets/js/7.08a4e29a.js"><link rel="prefetch" href="/assets/js/8.eea0b285.js"><link rel="prefetch" href="/assets/js/9.b7f4bb97.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a8c216e1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Guangyuan's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/前端基础/" class="nav-link">
+  FE-前端
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/前端基础/" class="nav-link">
+  FE-前端
+</a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="数组中的问题"><a href="#数组中的问题" class="header-anchor">#</a> 数组中的问题</h3> <p>排序：选择排序，插入排序，归并排序，快速排序</p> <p>查找：二分查找</p> <p>数据结构：栈，队列，堆</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">binraySearch</span><span class="token punctuation">(</span><span class="token parameter">arr<span class="token punctuation">,</span>target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 理解定义变量，边界定义</span>
+  	<span class="token keyword">let</span> left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> arr<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+  	<span class="token keyword">while</span><span class="token punctuation">(</span>left <span class="token operator">&lt;</span> right<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// [left,right) , 不包括right</span>
+      <span class="token keyword">const</span> mid <span class="token operator">=</span> <span class="token function">parseInt</span><span class="token punctuation">(</span><span class="token punctuation">(</span>left<span class="token operator">+</span>right<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">)</span>
+      <span class="token keyword">const</span> currItem <span class="token operator">=</span> arr<span class="token punctuation">[</span>mid<span class="token punctuation">]</span>
+      <span class="token keyword">if</span><span class="token punctuation">(</span>currItem <span class="token operator">===</span> target<span class="token punctuation">)</span> <span class="token keyword">return</span> mid<span class="token punctuation">;</span>
+      <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>currItem <span class="token operator">&gt;</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token comment">// [mid,right)</span>
+       left <span class="token operator">=</span> mid <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span><span class="token punctuation">(</span>currItem <span class="token operator">&lt;</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment">// [left,mid)</span>
+        right <span class="token operator">=</span> mid<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token keyword">return</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.9b4cc0b8.js" defer></script><script src="/assets/js/2.c1383578.js" defer></script><script src="/assets/js/16.d4e83bbc.js" defer></script>
+  </body>
+</html>
