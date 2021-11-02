@@ -28,6 +28,12 @@ module.exports = {
                     ]
                 },
                 {
+                    title: "TypeScript",
+                    children: [
+                        ['/前端基础/JavaScript基础/01-Typescript和Javascript.md', '01-Typescript和Javascript'],
+                    ]
+                },
+                {
                     title: "认知",
                     children: [
                         ['/前端基础/认知/01-学会如何学习.md', '01-学会如何学习'],

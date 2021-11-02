@@ -176,10 +176,51 @@
 
 // const bindedTest = test.mybind(obj, 'shit')
 
-let arrayLikeObject = {
-    '0': 'Apple',
-    '1': 'Orange',
-    '2': 'Bnana'
+// let arrayLikeObject = {
+//     '0': 'Apple',
+//     '1': 'Orange',
+//     '2': 'Bnana'
+// }
+// const toArray = Array.prototype.slice.call(arrayLikeObject)
+// console.log(toArray instanceof Array)
+
+// var curry = function(fn) {
+//     var args = [].slice.call(arguments, 1)
+//     return function() {
+//         // 此arguments非彼arguments
+//         var newArgs = args.concat([].slice.call(arguments));
+//         return fn.apply(this, newArgs)
+//     }
+// }
+
+// function add(a, b) {
+//     return a + b;
+// }
+
+// var addCurry = curry(add, 1)
+// const result = addCurry(1)
+// console.log(result)
+
+// console.log(add.apply(undefined, [2, 3]));
+
+function sub_curry(fn) {
+    var args = [].slice.call(arguments, 1);
+    return function() {
+        return fn.apply(this, args.concat([].slice.call(arguments)));
+    }
 }
-const toArray = Array.prototype.slice.call(arrayLikeObject)
-console.log(toArray instanceof Array)
+
+function curry(fn, length) {
+    // 获取函数接受参数的长度
+    length = length || fn.length;
+    var slice = Array.prototype.slice;
+    return function() {
+        if (arguments.length < length) {
+            var combined = [fn].concat(slice.call(arguments));
+            // 根据参数的长度，递归拼接参数
+            return curry(sub_curry.apply(this.combined), length - arguments.length)
+        } else {
+            return fn.apply(this, arguments);
+        }
+    }
+}

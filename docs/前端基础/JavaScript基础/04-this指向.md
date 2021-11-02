@@ -46,7 +46,7 @@ test.mycall(obj,'Bob')
 // {name:'JS'} 'Bob'
 ```
 2. apply
-> 参数以数组的形式传入
+> 参数以数组的形式传入,可以借此改变参数传入的方式
 ```js
 Function.prototype.myapply = function(context,args) {
     context = context || window;
