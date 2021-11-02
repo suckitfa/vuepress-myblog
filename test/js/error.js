@@ -203,24 +203,62 @@
 
 // console.log(add.apply(undefined, [2, 3]));
 
-function sub_curry(fn) {
-    var args = [].slice.call(arguments, 1);
-    return function() {
-        return fn.apply(this, args.concat([].slice.call(arguments)));
-    }
+// function sub_curry(fn) {
+//     var args = [].slice.call(arguments, 1);
+//     return function() {
+//         return fn.apply(this, args.concat([].slice.call(arguments)));
+//     }
+// }
+
+// function curry(fn, length) {
+//     // 获取函数接受参数的长度
+//     length = length || fn.length;
+//     var slice = Array.prototype.slice;
+//     return function() {
+//         if (arguments.length < length) {
+//             var combined = [fn].concat(slice.call(arguments));
+//             // 根据参数的长度，递归拼接参数
+//             return curry(sub_curry.apply(this.combined), length - arguments.length)
+//         } else {
+//             return fn.apply(this, arguments);
+//         }
+//     }
+// }
+
+// var scope = "global scope";
+
+// function checkscope() {
+//     var scope = "local scope";
+
+//     function f() {
+//         return scope;
+//     }
+//     return f;
+// }
+
+// var foo = checkscope();
+// const result = foo();
+// console.log(result) // localscope
+// var name = "The window"
+// var obj = {
+//     name: 'The obj',
+//     getNameFunc: function() {
+//         return function() {
+//             return this.name;
+//         }
+//     }
+// }
+
+// alert(obj.getNameFunc()())
+
+function bar() {
+    console.log(myName)
 }
 
-function curry(fn, length) {
-    // 获取函数接受参数的长度
-    length = length || fn.length;
-    var slice = Array.prototype.slice;
-    return function() {
-        if (arguments.length < length) {
-            var combined = [fn].concat(slice.call(arguments));
-            // 根据参数的长度，递归拼接参数
-            return curry(sub_curry.apply(this.combined), length - arguments.length)
-        } else {
-            return fn.apply(this, arguments);
-        }
-    }
+function foo() {
+    var myName = " 极客邦 "
+    bar()
 }
+
+var myName = " 极客时间 "
+foo()

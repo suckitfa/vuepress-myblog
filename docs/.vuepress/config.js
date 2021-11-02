@@ -21,10 +21,7 @@ module.exports = {
                         ['/前端基础/JavaScript基础/01-JavaScript数据类型及其相关问题.md', '01-JavaScript数据类型及其相关问题'],
                         ['/前端基础/JavaScript基础/02-数据拷贝.md', '02-数据拷贝'],
                         ['/前端基础/JavaScript基础/03-原型链和继承.md', '03-原型链和继承'],
-                        ['/前端基础/JavaScript基础/04-this指向.md', '04-this指向.md'],
-                        ['/前端基础/JavaScript基础/05-js模块化.md', '05-js模块化.md'],
-                        ['/前端基础/JavaScript基础/06-闭包.md', '06-闭包.md'],
-                        ['/前端基础/JavaScript基础/07-深入数组.md', '07-深入数组.md'],
+                        ['/前端基础/JavaScript基础/04-JavaScript执行过程.md', '04-JavaScript执行过程'],
                     ]
                 },
                 {
