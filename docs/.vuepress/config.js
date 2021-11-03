@@ -38,6 +38,7 @@ function renderSideBar() {
                     ['JavaScript基础/06-闭包.md', '06-闭包'],
                     ['JavaScript基础/07-函数的柯里化.md', '07-函数的柯里化'],
                     ['JavaScript基础/08-深入数组.md', '08-深入数组'],
+                    ['JavaScript基础/09-Promise.md', '09-Promise'],
                 ]
             },
             {

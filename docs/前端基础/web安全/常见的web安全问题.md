@@ -61,3 +61,5 @@ DENY不允许iframe
 - SSL劫持
 - DNS欺骗（'长城'）
 
+防御
+HTTPS (注意：HTTPS降级攻击，SSLStrip)

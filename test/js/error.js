@@ -353,23 +353,20 @@
 //     console.log(item)
 // })
 
+// const todos = [{ title: '学习', done: true }, { title: '吃饭', done: false }]
+// const doneList = todos.filter(item => item.done)
+// console.log(doneList)
 
-function curry(fn, args) {
-    length = fn.length;
-    args = args || []
-    return function() {
-        const _args = args.concat(arguments)
-        if (args.length < length) {
-            return curry.call(this, fn, _args)
-        } else {
-            return fn.apply(this, _args)
-        }
-    }
-}
+// 同步操作
+console.log('start');
+// 宏任务入队
+setTimeout(() => {
+    console.log('timeout')
+});
 
-function sum(a, b) {
-    return a + b;
-}
-
-let currfiedSum = curry(sum)
-console.log(currfiedSum(1)(2))
+// 微任务 入队
+Promise.resolve().then(() => {
+    console.log('resolve');
+});
+// 同步操作
+console.log('end');
