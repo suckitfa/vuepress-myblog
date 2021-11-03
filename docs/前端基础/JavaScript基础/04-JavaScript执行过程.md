@@ -1,4 +1,4 @@
-浏览器执行js的机制
+### 浏览器执行js的机制
 执行上下文 + 调用栈
 变量提升： 声明和赋值操作
 所谓的变量提升是指，在JavaScript代码执行过程中，JavaScript引擎把变量的声明部分和函数的声明部分提到开头的行为。变量提升后，会给变量设置默认值undefined;
@@ -39,8 +39,51 @@ function foo(){}
 ```
 
 作用域链
+执行上下文
+ - 变量环境
+ - 词法环境
 
-https://blog.poetries.top/browser-working-principle/guide/part2/lesson10.html#%E8%AF%8D%E6%B3%95%E4%BD%9C%E7%94%A8%E5%9F%9F
+可执行代码
 
 
-https://blog.poetries.top/browser-working-principle/guide/part2/lesson11.html#javascript-%E4%B8%AD%E7%9A%84-this-%E6%98%AF%E4%BB%80%E4%B9%88
+
+其实在每个执行上下文的变量环境中，都包含了一个外部引用，用来指向外部的执行上下文，我们把这个外部引用称为outer。如果在当前的变量环境中没有查找到，那么 JavaScript 引擎会继续在 outer 所指向的执行上下文中查找。
+
+作用域链是由词法作用域决定的。 词法作用域：就是指作用域由代码的声明文位置决定的，词法作用域是静态作用域，通过它能欧预测代码在执行过程中如何查找标识符
+
+作用域链是通过词法作用域来确定的，而词法作用域反映了代码的结构。
+
+函数执行完毕，销毁指向上下文。
+闭包保留着对其上下文的引用。
+
+this和作用域链式两套不同的机制。
+
+执行上下文：变量环境（outer) 词法环境 this
+
+![image-20211102194652646](/Users/bobtang/Library/Application Support/typora-user-images/image-20211102194652646.png)
+
+### 有两种this
+
+- 全局上下文中的this
+- 函数的this
+> call
+> 对象.函数
+- eval中的this
+
+
+### this的设计缺陷
+1. 嵌套函数中的this不会从外层函数中继承
+```js
+var myObj = {
+  name:"bob",
+  showThis:function() {
+    console.log(this);
+    function bar(){console.log(this)}
+    bar();
+  }
+}
+myObj.showThis();
+```
+2. 普通函数的this默认指向window;
+
+箭头函数不会创建其自身的执行上下文，其this取决于外部的函数。

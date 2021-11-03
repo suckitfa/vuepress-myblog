@@ -251,14 +251,125 @@
 
 // alert(obj.getNameFunc()())
 
-function bar() {
-    console.log(myName)
+// var bar = {
+//     myName: "time.geekbang.com",
+//     printName: function() {
+//         console.log(myName)
+//     }
+// }
+
+// function foo() {
+//     let myName = " 极客时间 "
+//     return bar.printName
+// }
+// let myName = " 极客邦 "
+// let _printName = foo()
+// _printName()
+// bar.printName()
+
+
+// function curry(fn, args) {
+//     // 获取当前要被柯里化函数的参数长度
+//     length = fn.length;
+//     args = args || []
+//     return function() {
+//         var _args = args.slice(0).concat(...arguments)
+
+//         if (_args.length < length) {
+//             return curry.call(this, fn, _args);
+//         } else {
+//             // _args.length == length 参数长度符合要求
+//             return fn.apply(this, _args)
+//         }
+//     }
+// }
+
+// function sum(a, b) {
+//     return a + b;
+// }
+// console.log('sumLength = ', sum.length)
+
+// const curriedSum = curry(sum)
+// const result = curriedSum(1)(2)
+// console.log(result)
+
+// function curry(fn, args, holes) {
+//     length = fn.length
+//     args = args || []
+//     holes = holes || []
+//     return function() {
+//         var _args = args.slice(0),
+//             _holes = holes.slice(0),
+//             argsLen = args.length,
+//             holesLen = holes.length,
+//             arg,
+//             i,
+//             index = 0;
+//         for (i = 0; i < arguments.length; i++) {
+//             arg = arguments[i];
+//             // 处理 fn(1,_,_,4)(_,3)
+//             if (arg == _ && holesLen) {
+//                 index++;
+//                 if (index > holesLen) {
+//                     _args.push(arg)
+//                     _holes.push(argsLen - 1 + index - holesLen);
+//                 }
+//             }
+//             // fn(1)(_)
+//             else if (arg == _) {
+//                 _args.push(arg);
+//                 _holes.push(argsLen + i);
+//             } else if (holesLen) {
+//                 if (index >= holesLen) {
+//                     _args.push(arg)
+//                 } else {
+//                     _args.splice(_holes[index], 1, arg)
+//                     _holes.splice(index, 1)
+//                 }
+//             }
+//         }
+
+
+//     }
+// }
+
+// fn(1, 2, 3, 4, 5);
+// fn(_, 2, 3, 4, 5)(1);
+// fn(1, _, 3, 4, 5)(2);
+// fn(1, _, 3)(_, 4)(2)(5);
+// fn(1, _, _, 4)(_, 3)(2)(5);
+// fn(_, 2)(_, _, 4)(1)(3)(5)
+
+// Array.prototype.myForEach = function(cb) {
+//     const thisArray = this;
+//     const length = thisArray.length;
+//     let index = -1;
+//     // 对数组中的每一项元素执行该回调
+//     while (++index < length) {
+//         cb(thisArray[index], index, thisArray)
+//     }
+// };
+// [1, 2, 3, 2].myForEach((item, index) => {
+//     console.log(item)
+// })
+
+
+function curry(fn, args) {
+    length = fn.length;
+    args = args || []
+    return function() {
+        const _args = args.concat(arguments)
+        if (args.length < length) {
+            return curry.call(this, fn, _args)
+        } else {
+            return fn.apply(this, _args)
+        }
+    }
 }
 
-function foo() {
-    var myName = " 极客邦 "
-    bar()
+function sum(a, b) {
+    return a + b;
 }
 
-var myName = " 极客时间 "
-foo()
+let currfiedSum = curry(sum)
+console.log(currfiedSum(1)(2))
