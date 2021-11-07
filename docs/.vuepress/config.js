@@ -61,6 +61,12 @@ function renderSideBar() {
                 children: [
                     ['web安全/常见的web安全问题.md', '01-常见的web安全']
                 ]
+            },
+            {
+                title: '算法和数据结构',
+                children: [
+                    ['算法和数据结构/01-数组中的问题.md', '01-数组中相关问题']
+                ]
             }
         ],
     } // 侧边栏配置
