@@ -19,7 +19,7 @@
 - watcher  | Observer
 
 #### Promise的基本概念
+- https://promisesaplus.com/
 - 解决的问题：回调地狱问题
 - 三种状态（pending resolved rejected)
-
 

@@ -1,19 +1,19 @@
-
+### 如何写简历
+https://mp.weixin.qq.com/s?__biz=MzI3ODU4MzQ1MA==&mid=2247485472&idx=2&sn=4bafbfcd3fef315e2b2a34d491ec2d1c&scene=19#wechat_redirect
 
 ### JavaScript高级程序设计
-
 - https://www.bilibili.com/video/BV1p541177F4?p=3
 
+### js异步编程的演化史
+- https://itnext.io/the-evolution-of-asynchronous-patterns-in-javascript-64efc8938b16
 
 
 ### JavaScript精进
-
 - 上 https://juejin.cn/post/6844903974378668039
 - 中 https://juejin.cn/post/6844903986479251464  (大量关于数组的操作)
 - 下 https://juejin.cn/post/6844904004007247880 (异步，eventloop)
 
 ### 手写题
-
 - https://juejin.cn/post/6946022649768181774
 
 ### 浏览器的工作原理
@@ -214,7 +214,6 @@
 - 实现const
 
 # 总结
-
 - 由上面列举的题目可以看出，八股文的考察比例非常大，一定要做好充分的准备。
 - 手写题考察频率也很高，都是非常常见的题目，在面试前一定要多练习，达到倒背如流的程度，并且注意尽量写的完善会很加分（可参考**伢羽**的博客)
 - `js`、`Vue或React中一个框架`、`http`、`webpack`考察频率非常高，需要充分准备并且尽可能的有深度。
