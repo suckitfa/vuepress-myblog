@@ -65,7 +65,10 @@ function renderSideBar() {
             {
                 title: '算法和数据结构',
                 children: [
-                    ['算法和数据结构/01-数组中的问题.md', '01-数组中相关问题']
+                    // leetcode
+                    ['算法和数据结构/01-数组中的问题.md', '01-数组中相关问题'],
+                    ['算法和数据结构/leetcode.md', 'bobo老师玩转算法']
+
                 ]
             }
         ],
