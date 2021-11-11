@@ -112,23 +112,34 @@ function resolvePromise(promise2, x, resolve, reject) {
     // x可能为一个promise
     if (x !== null && (typeof x === 'object' || typeof x === 'function')) {
         let then;
+        let called;
         try {
             then = x.then;
             // then是一个函数
             if (typeof then === 'function') {
+                if (called) return;
+                called = ture;
                 then.call(
                     x,
                     // resovle中的值为Promise，递归解析
                     y => {
+                        if (called) return;
+                        called = true;
+
                         resolvePromise(promise2, y, resolve, reject);
                     },
                     r => {
+                        if (called) return;
+                        called = true;
                         reject(r);
                     });
             } else {
-                resolve(x);
+                resolve(x); // {then:{}} {then:123}
             }
         } catch (e) {
+            // 防止出错后继续调用成功逻辑
+            if (called) return;
+            called = true;
             reject(e);
         }
     } else {
@@ -136,4 +147,40 @@ function resolvePromise(promise2, x, resolve, reject) {
         resolve(x);
     }
 }
+
+// catch是then(null,onRejected)
+Promise.prototype.catch = function(errCallback) {
+    return this.then(null, errCallback)
+};
+
+// 实现一个finally
+Promise.prototype.finally = function() {
+
+};
+
+Promise.resolve = function(value) {
+    return new Promise((resolve, reject) => {
+        resolve(value)
+    })
+};
+
+Promise.reject = function(reason) {
+    return new Promise((resolve, reject) => {
+        reject(reason);
+    })
+};
+
+// Promise.all Promise.race解决并发的问题
+
+
+// 延时对象 deferred
+Promise.deferred = function() {
+    let dfd = {};
+    dfd.promise = new Promise((resolve, reject) => {
+        dfd.resolve = resolve;
+        dfd.reject = reject;
+    })
+    return dfd;
+}
+
 module.exports = Promise;

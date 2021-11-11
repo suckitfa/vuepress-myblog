@@ -21,4 +21,6 @@
 - https://promisesaplus.com/
 - 解决的问题：回调地狱问题
 - 三种状态（pending resolved rejected)
-
+- then方法
+- catch方法
+### 测试中的延迟对象的作用
