@@ -1,7 +1,7 @@
 {
     "name": "myblog",
     "version": "1.0.0",
-    "description": "",
+    "description": "��#\u0000 \u0000v\u0000u\u0000e\u0000p\u0000r\u0000e\u0000s\u0000s\u0000-\u0000m\u0000y\u0000b\u0000l\u0000o\u0000g\u0000\r\u0000 \u0000#\u0000#\u0000#\u0000 \u0000ZS�[y��v\r\u0000 \u0000",
     "main": "index.js",
     "scripts": {
         "dev": "vuepress dev docs",
@@ -16,5 +16,17 @@
     },
     "devDependencies": {
         "@vuepress/plugin-back-to-top": "^1.8.2"
-    }
+    },
+    "directories": {
+        "doc": "docs",
+        "test": "test"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/suckitfa/vuepress-myblog.git"
+    },
+    "bugs": {
+        "url": "https://github.com/suckitfa/vuepress-myblog/issues"
+    },
+    "homepage": "https://github.com/suckitfa/vuepress-myblog#readme"
 }

@@ -12,4 +12,7 @@ let promise2 = p.then(data => {
 
 promise2.then(d => {
     console.log(d + '---------')
-}, e => { console.log(e, '***********') });
+    return 1;
+}, e => { console.log(e, '***********') }).then(data => {
+    console.log(data);
+});
