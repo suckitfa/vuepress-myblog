@@ -23,4 +23,7 @@
 - 三种状态（pending resolved rejected)
 - then方法
 - catch方法
+
+- 自己写一个fianlly
+- 将Promise改写成es6
 ### 测试中的延迟对象的作用
