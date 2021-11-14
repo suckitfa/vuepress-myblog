@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="m-choiceQuestion u-questionItem examMode first">
+        <div class="j-title title f-cb">
+            <div class="position f-fl">1</div>
+            <div class="qaDescription f-fl f-cb">
+                <div class="qaIndex j-qaindex f-fl f-dn"></div>
+                <div class="qaCate j-qacate f-fl"><span class="dan">单选</span>(5分)</div>
+                <div class="f-richEditorText j-richTxt edueditor_styleclass_0 edueditor_styleclass_1">
+                    <p>​<span style="color: rgb(32, 32, 32); font-family: &quot;Microsoft Yahei&quot;, Arial, Helvetica, sans-serif; background-color: rgb(255, 255, 255);">马里奥.博塔是哪国建筑师?</span></p>‏</div>
+                <div class="qaMark j-qamark f-fr f-dn"></div>
+            </div> <label class="scoreLabel f-fr f-dn j-scoreLabel" style="display: none;">得分/总分</label> </div>
+        <div class="j-choicebox">
+            <ul class="choices f-cb">
+                <li class="f-cb  "><input class="u-tbi" id="op_2809559336278721636774962820" type="radio" name="op_33024147271636774962820"><label class="u-tbl f-pr f-cb" for="op_2809559336278721636774962820"><div class="f-fl optionPos">A.</div><div class="f-fl f-richEditorText optionCnt f-thide edueditor_styleclass_2"><p>英国</p></div></label></li>
+                <li class="f-cb  "><input class="u-tbi" id="op_1809559336278721636774962820" type="radio" name="op_33024147271636774962820"><label class="u-tbl f-pr f-cb" for="op_1809559336278721636774962820"><div class="f-fl optionPos">B.</div><div class="f-fl f-richEditorText optionCnt f-thide edueditor_styleclass_3"><p>美国</p></div></label></li>
+                <li class="f-cb  "><input class="u-tbi" id="op_3809559336278721636774962820" type="radio" name="op_33024147271636774962820"><label class="u-tbl f-pr f-cb" for="op_3809559336278721636774962820"><div class="f-fl optionPos">C.</div><div class="f-fl f-richEditorText optionCnt f-thide edueditor_styleclass_4"><p>意大利</p></div></label></li>
+                <li class="f-cb  " style="border: 1px solid red;"><input class="u-tbi" id="op_809559336278721636774962820" type="radio" name="op_33024147271636774962820"><label class="u-tbl f-pr f-cb" for="op_809559336278721636774962820"><div class="f-fl optionPos">D.</div><div class="f-fl f-richEditorText optionCnt f-thide edueditor_styleclass_5"><p>瑞士</p></div></label></li>
+            </ul>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const answers = $("[style='border: 1px solid red;']").children('input').prop('checked', true);
+        console.log(answers)
+    </script>
+</body>
+
+</html>
