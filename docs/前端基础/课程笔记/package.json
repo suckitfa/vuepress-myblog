@@ -4,7 +4,7 @@
     "description": "",
     "main": "./code/06-promise.js",
     "scripts": {
-        "test": "promises-aplus-tests code/06-promise.js"
+        "test": "promises-aplus-tests code/promise.js"
     },
     "author": "",
     "license": "ISC",

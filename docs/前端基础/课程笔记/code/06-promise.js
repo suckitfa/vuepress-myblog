@@ -118,7 +118,7 @@ function resolvePromise(promise2, x, resolve, reject) {
             // then是一个函数
             if (typeof then === 'function') {
                 if (called) return;
-                called = ture;
+                called = true;
                 then.call(
                     x,
                     // resovle中的值为Promise，递归解析

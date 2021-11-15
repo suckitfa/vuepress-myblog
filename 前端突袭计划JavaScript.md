@@ -14,6 +14,8 @@ https://mp.weixin.qq.com/s?__biz=MzI3ODU4MzQ1MA==&mid=2247485472&idx=2&sn=4bafbf
 ### JavaScript高级程序设计
 - https://www.bilibili.com/video/BV1p541177F4?p=3
 
+### 面试题
+- https://juejin.cn/post/6844903782334070798
 ### js异步编程的演化史
 - https://itnext.io/the-evolution-of-asynchronous-patterns-in-javascript-64efc8938b16
 
