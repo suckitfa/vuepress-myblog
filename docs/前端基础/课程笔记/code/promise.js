@@ -169,4 +169,61 @@ Promise.deferred = function() {
     return def;
 }
 
+/**
+ *  计数器的应用
+ */
+Promise.all = function(values) {
+    return new Promise((resolve, reject) => {
+        const arr = {};
+        let count = 0;
+
+        function processData(key, value) {
+            arr[key] = value;
+            if (++count === values.length) {
+                // 所有的结果
+                resolve(arr);
+            }
+        }
+        for (let i = 0; i < values.length; i++) {
+            const currentItem = values[i];
+            if (currentItem && currentItem.then && typeof currentItem.then === 'function') {
+                // currentItem为then
+                currentItem.then.call(currentItem,
+                    y => {
+                        // y在这里是promise执行后的结果
+                        processData(i, y);
+                    },
+                    reject);
+            } else {
+                // 非promise
+                processData(i, currentItem);
+            }
+        }
+    });
+}
+
+
+Promise.race = function(values) {
+    return new Promise((resolve, reject) => {
+        for (let i = 0; i < values.length; i++) {
+            const cur = values[i];
+            let then = cur.then;
+            if (then && typeof then === 'function') {
+                // 是promise实例
+                then.call(cur,
+                    y => {
+                        resolve(y);
+                    },
+                    reject);
+            } else {
+                // 非promise值
+                resolve(cur);
+            }
+        }
+    });
+}
+
+Promise.allSettled = function() {
+
+}
 module.exports = Promise;

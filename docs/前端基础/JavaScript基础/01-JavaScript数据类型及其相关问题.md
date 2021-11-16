@@ -47,8 +47,15 @@ obj2 = 2
 ## 数据类型的判断及其相关原理
 ### 问题一：如何判断数据类型?
 
-1. typeof 方法，适用于**基本数据类型的判断**，但是typeof null的结果为object
+1. typeof 方法，适用于**基本数据类型的判断**和函数的判断，但是typeof null的结果为object
+```js
+typeof function() {} // 'function'
+```
+
+
+
 > null不是对象，传统bug
+   
    ```js
    typeof 1 // 'number'
    typeof false // 'boolean'
@@ -101,6 +108,7 @@ obj2 = 2
      return false;
    }
    
+   // 测试代码
    const testFunc = ()=>{}
    const result = myinstanceof(testFunc,Function)
    console.log(result)
@@ -134,10 +142,113 @@ obj2 = 2
     type['is' + item] = (val) => {
         return type(val) === item.toLowerCase();
     }});
+
+// 以上代码生成以下函数用来判断数据类型
+1. isString()
+2. isBoolean()
+3. isNumber()
+4. isUndefined()
+5. isNull()
+6. isSymbol()
+7. isFunction()
+8. isRegExp()
 ```
 ### 类型转换
 
+## 类型转换
 
+> 涉及面试题：该知识点常在笔试题中见到，熟悉了转换规则就不惧怕此类题目了。
+
+### 转Boolean
+
+在条件判断时，除了 `undefined`， `null`， `false`， `NaN`， `''`， `0`， `-0`，其他所有值都转为 `true`，包括所有对象。
+
+### 对象转原始类型
+
+对象在转换类型的时候，会调用内置的 `[[ToPrimitive]]` 函数，对于该函数来说，算法逻辑一般来说如下：
+
+*   如果已经是原始类型了，那就不需要转换了
+*   调用 `x.valueOf()`，如果转换为基础类型，就返回转换的值
+*   调用 `x.toString()`，如果转换为基础类型，就返回转换的值
+*   如果都没有返回原始类型，就会报错
+
+当然你也可以重写 `Symbol.toPrimitive` ，该方法在转原始类型时调用优先级最高。
+
+```
+let a = {
+  valueOf() {
+    return 0
+  },
+  toString() {
+    return '1'
+  },
+  [Symbol.toPrimitive]() {
+    return 2
+  }
+}
+1 + a // => 3
+
+```
+
+### 四则运算符
+
+加法运算符不同于其他几个运算符，它有以下几个特点：
+
+*   运算中其中一方为字符串，那么就会把另一方也转换为字符串
+*   如果一方不是字符串或者数字，那么会将它转换为数字或者字符串
+
+```
+1 + '1' // '11'
+true + true // 2
+4 + [1,2,3] // "41,2,3"
+
+```
+
+如果你对于答案有疑问的话，请看解析：
+
+*   对于第一行代码来说，触发特点一，所以将数字 `1` 转换为字符串，得到结果 `'11'`
+*   对于第二行代码来说，触发特点二，所以将 `true` 转为数字 `1`
+*   对于第三行代码来说，触发特点二，所以将数组通过 `toString` 转为字符串 `1,2,3`，得到结果 `41,2,3`
+
+另外对于加法还需要注意这个表达式 `'a' + + 'b'`
+
+```
+'a' + + 'b' // -> "aNaN"
+
+```
+
+因为 `+ 'b'` 等于 `NaN`，所以结果为 `"aNaN"`，你可能也会在一些代码中看到过 `+ '1'` 的形式来快速获取 `number` 类型。
+
+那么对于除了加法的运算符来说，只要其中一方是数字，那么另一方就会被转为数字
+
+```
+4 * '3' // 12
+4 * [] // 0
+4 * [1, 2] // NaN
+
+```
+
+### 比较运算符
+
+1.  如果是对象，就通过 `toPrimitive` 转换对象
+2.  如果是字符串，就通过 `unicode` 字符索引来比较
+
+```
+let a = {
+  valueOf() {
+    return 0
+  },
+  toString() {
+    return '1'
+  }
+}
+a > -1 // true
+
+```
+
+在以上代码中，因为 `a` 是对象，所以会通过 `valueOf` 转换为原始类型再比较值。
+
+## 
 
 ### 类型转换只能有三种
 
@@ -206,8 +317,9 @@ if (!Object.is) {
 ### 问题四：数据类型是如何自动转换的?
 - 转为boolean
   除falsy值外，其余为真
+  
   > 0 空字符串 undefiend null NaN 0 0n document.all
-
+  
 - 对象转为string的流程
   1. [Symbol.toPromitive]
   2. valueOf
@@ -230,7 +342,7 @@ if (!Object.is) {
   }
   1 + a // => 3
   ```
-问：a==1&&a==2
+  问：a==1&&a==2
 ```js
 const a = {
   value:0,
@@ -246,5 +358,4 @@ if(a==1&&a==2) {
 a为对象，在与2相比时,
 两次调用调用valueOf()，在这个函数中修改value的值,返回基本数据类型
 ```
-  
 

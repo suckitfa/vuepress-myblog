@@ -46,6 +46,22 @@ function renderSideBar() {
                 ]
             },
             {
+                title: "ES6",
+                children: [
+                    ['ES6/01-let-const.md', '01-let-const'],
+                    ['ES6/02-展开运算符.md', '02-展开运算符'],
+                    ['ES6/03-set-map.md', '03-set-maps'],
+                ]
+            },
+            {
+                title: "计算机网络",
+                children: [
+                    ['计算机网络/HTTP.md', 'HTTP'],
+                    ['计算机网络/HTTP的首部字段.md', 'HTTP的首部字段'],
+                    ['计算机网络/TCP.md', 'TCP'],
+                ]
+            },
+            {
                 title: "TypeScript",
                 children: [
                     ['TypeScript/01-Typescript和Javascript.md', '01-Typescript和Javascript'],
