@@ -1,4 +1,7 @@
 你好啊，这是我的前端知识笔记。
+### 规范
+- https://www.w3.org/TR/DOM-Level-3-Events/
+
 ### 大佬们的博客
 - https://javascript.ruanyifeng.com/
 ### 前端相关的博客
