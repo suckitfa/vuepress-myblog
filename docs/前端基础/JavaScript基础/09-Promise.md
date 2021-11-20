@@ -9,6 +9,11 @@
 实现链式调用，解决多层嵌套问题
 实现错误冒泡后一站式处理，解决每次任务中判断错误、增加代码混乱度的问题
 
+### 简单实现
+```js
+const PENDING = "pending";
+const REJCTED = "rejected";
+```
 ### 延迟对象
 ```js
 Promise.deferred = function() {

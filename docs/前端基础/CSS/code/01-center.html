@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./base.css">
+    <style>
+        .father {
+            /* 对inline子元素生效,居中 */
+            text-align: center;
+        }
+        
+        .son {
+            /* 子元素设置为inline-block */
+            display: inline-block;
+            /* 子元素的text-align会继承，重新设置为左对齐 */
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son">DEMO</div>
+    </div>
+</body>
+
+</html>

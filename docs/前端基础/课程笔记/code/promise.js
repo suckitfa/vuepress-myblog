@@ -226,4 +226,10 @@ Promise.race = function(values) {
 Promise.allSettled = function() {
 
 }
-module.exports = Promise;
+
+const p = new Promise((resolve, reject) => {
+    resolve("hello promise")
+});
+p.then(d => { console.log(d), e => console.log(e) })
+console.log(p);
+// module.exports = Promise;
