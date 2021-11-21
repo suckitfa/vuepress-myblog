@@ -56,9 +56,9 @@ function renderSideBar() {
             {
                 title: "计算机网络",
                 children: [
-                    ['计算机网络/HTTP.md', 'HTTP'],
-                    ['计算机网络/HTTP的首部字段.md', 'HTTP的首部字段'],
-                    ['计算机网络/TCP.md', 'TCP'],
+                    ['计算机网络/01-HTTP的进化史', '01-HTTP的进化史'],
+                    ['计算机网络/02-HTTP的缓存策略', '02-HTTP的缓存策略'],
+                    ['计算机网络/03-HTTP', '03-HTTP'],
                 ]
             },
             {
