@@ -33,7 +33,7 @@ Cache-control: max-age=30
 # max-age取值如下
 ```
 
-![image-20211115081143715](/Users/bobtang/Library/Application Support/typora-user-images/image-20211115081143715.png)
+![image-20211115081143715](./img/image-cache.png)
 
 ### 协商缓存
 
