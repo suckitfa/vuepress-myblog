@@ -87,6 +87,16 @@ function renderSideBar() {
                     ['算法和数据结构/leetcode.md', 'bobo老师玩转算法']
 
                 ]
+            },
+            // 读牙羽的文章摘抄
+            {
+                title: '课程笔记',
+                children: [
+                    // leetcode
+                    ['课程笔记/01-promsie的详解.md', '01-promsie的详解'],
+                    ['课程笔记/读牙羽的文章摘抄', '读牙羽的文章摘抄']
+
+                ]
             }
         ],
     } // 侧边栏配置
