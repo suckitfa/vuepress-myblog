@@ -57,7 +57,7 @@ function renderSideBar() {
                 title: "计算机网络",
                 children: [
                     ['计算机网络/01-HTTP的进化史', '01-HTTP的进化史'],
-                    ['计算机网络/02-HTTP的缓存策略', '02-HTTP的缓存策略'],
+                    ['计算机网络/02-HTTP之缓存', '02-HTTP之缓存'],
                     ['计算机网络/03-HTTP', '03-HTTP'],
                 ]
             },
@@ -94,7 +94,8 @@ function renderSideBar() {
                 children: [
                     // leetcode
                     ['课程笔记/01-promsie的详解.md', '01-promsie的详解'],
-                    ['课程笔记/读牙羽的文章摘抄', '读牙羽的文章摘抄']
+                    ['课程笔记/读牙羽的文章摘抄', '读牙羽的文章摘抄'],
+                    ['课程笔记/CDN.md', 'CDN']
 
                 ]
             }

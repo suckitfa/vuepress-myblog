@@ -166,10 +166,9 @@ HTTP/2 也存在队头阻塞问题，比如丢包。
 ### HTTP3
 
 前面HTTP/2 HTTP/1等存在的问题
-
 - 队头阻塞，虽然HTTP/2支持多路复用，但是TCP协议不支持
 - 建立连接时间长（TCP的三次握手）
 
 
-
+### HTTPS的简介
 HTTPS 其实是 HTTP+SSL/TLS 的简称
