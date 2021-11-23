@@ -95,7 +95,9 @@ function renderSideBar() {
                     // leetcode
                     ['课程笔记/01-promsie的详解.md', '01-promsie的详解'],
                     ['课程笔记/读牙羽的文章摘抄', '读牙羽的文章摘抄'],
-                    ['课程笔记/CDN.md', 'CDN']
+                    ['课程笔记/CDN.md', 'CDN'],
+                    ['课程笔记/Vue 常考基础知识点.md', 'Vue 常考基础知识点'],
+                    ['课程笔记/Vue 常考进阶知识点.md', 'Vue 常考进阶知识点']
 
                 ]
             }
