@@ -283,8 +283,13 @@ person1.foo4().call(person2); // person1
 ### 手写call,apply,bind
 > 主要目的，深入理解这几个函数的原理
 1. call
+参数： 参数列表传入 `test.call(context,arg1,arg2....)`
 ```js
 Function.prototype.mycall = function(context,...args) {
+    if(typeof this !== 'function') {
+        throw new TypeError('what is trying to be called is not a func..');
+    }
+
     context = context || window;
     // this指向调用的函数实例
     context.ctxFunc = this;
@@ -301,9 +306,13 @@ test.mycall(obj,'Bob')
 // {name:'JS'} 'Bob'
 ```
 2. apply
-> 参数以数组的形式传入,可以借此改变参数传入的方式
+> 参数:`数组` `test.apply(context,[])`的形式传入
 ```js
 Function.prototype.myapply = function(context,args) {
+    if(typeof this !== 'function') {
+        throw new TypeError('what is trying to be applied is not a func..');
+    }
+
     context = context || window;
 
     context.ctxFunc = this;
@@ -316,15 +325,32 @@ Function.prototype.myapply = function(context,args) {
 }
 ```
 3. bind
+以下是注意点
+参数的到处理： 支持简单柯里化 `test.bind(txt,1)(1)`
+返回一个函数，考虑函数有两种常见的方式
+- 普通调用
+- new调用
 ```js
-Function.prototype.mybind = function(context,...args){
+Function.prototype.mybind = function(context,...bindArgs){
+    if(typeof this !== 'function') {
+        throw new TypeError('what is trying to be bound is not a func..');
+    }
+    const _this = this;
+
     context = context || window;
     context.ctxFunc = this;
-
-    return function() {
-        const result = context.ctxFunc(...args);
-        delete context.ctxFunc;
-        return result;
+    return function F() {
+        // 参数的简单柯里化处理
+        const args = bindArgs.concat(arguments);
+        // 处理new调用的情况
+        if(this instanceof F) {
+            return new _this(...args);
+        } else {
+            // 普通函数调用
+            const result = context.ctxFunc(args);
+            delete context.ctxFunc;
+            return result;
+        }
     }
 }
 ```
