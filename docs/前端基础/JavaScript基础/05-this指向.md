@@ -37,6 +37,8 @@ foo.call("abc");
 ### 通常我们在函数中是用this
 ### this的绑定方式
 
+![image-20211124163849876](./img/image-this-menu.png)
+
 函数中的this无非就是在函数别调用的手绑定一个对象
 
 1. 默认绑定
