@@ -100,6 +100,12 @@ function renderSideBar() {
                     ['课程笔记/Vue 常考进阶知识点.md', 'Vue 常考进阶知识点']
 
                 ]
+            },
+            {
+                title: "vue",
+                children: [
+                    ['Vue框架/v-model.md', 'v-model'],
+                ]
             }
         ],
     } // 侧边栏配置
