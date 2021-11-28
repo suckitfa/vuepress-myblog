@@ -84,7 +84,11 @@ function renderSideBar() {
                 children: [
                     // leetcode
                     ['算法和数据结构/01-数组中的问题.md', '01-数组中相关问题'],
-                    ['算法和数据结构/leetcode.md', 'bobo老师玩转算法']
+                    ['算法和数据结构/leetcode.md', 'bobo老师玩转算法'],
+                    ['算法和数据结构/回朔算法.md', '回朔算法'],
+                    ['算法和数据结构/动态规划.md', '动态规划'],
+                    ['算法和数据结构/BFS.md', 'BFS'],
+                    ['算法和数据结构/DFS.md', 'DFS'],
 
                 ]
             },
