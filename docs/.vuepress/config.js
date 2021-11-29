@@ -115,6 +115,7 @@ function renderSideBar() {
                 title: "CSS",
                 children: [
                     ['CSS/盒子模型.md', '盒子模型'],
+                    ['CSS/flex布局.md', 'flex布局'],
                 ]
             }
         ],
