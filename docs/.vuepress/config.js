@@ -14,7 +14,7 @@ module.exports = {
         theme: "vuepress-theme-reco",
         // 导航栏配置 顶部导航栏
         nav: [
-            { text: 'FE-前端', link: '/前端基础/' },
+            { text: 'FE-前端', link: '/基础/' },
         ],
         sidebar: renderSideBar(),
         sidebarDepth: 2, // 侧边栏显示2级
@@ -27,7 +27,7 @@ module.exports = {
 
 function renderSideBar() {
     return {
-        '/前端基础/': [{
+        '/基础/': [{
                 title: "JavaScript基础",
                 children: [
                     ['JavaScript基础/01-JavaScript数据类型及其相关问题.md', '01-JavaScript数据类型及其相关问题'],
@@ -109,6 +109,12 @@ function renderSideBar() {
                 title: "vue",
                 children: [
                     ['Vue框架/v-model.md', 'v-model'],
+                ]
+            },
+            {
+                title: "CSS",
+                children: [
+                    ['CSS/盒子模型.md', '盒子模型'],
                 ]
             }
         ],

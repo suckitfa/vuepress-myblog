@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>基础算法思路的应用 | Guangyuan&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/img/logo.jpg">
+    <meta name="description" content="广园的个人博客">
+    
+    <link rel="preload" href="/assets/css/0.styles.a8c216e1.css" as="style"><link rel="preload" href="/assets/js/app.0a95b95c.js" as="script"><link rel="preload" href="/assets/js/2.1c893925.js" as="script"><link rel="preload" href="/assets/js/53.130f600a.js" as="script"><link rel="prefetch" href="/assets/js/10.0191086a.js"><link rel="prefetch" href="/assets/js/100.2bc07bb1.js"><link rel="prefetch" href="/assets/js/101.a768dc90.js"><link rel="prefetch" href="/assets/js/102.e3d78eec.js"><link rel="prefetch" href="/assets/js/103.e2dfeccf.js"><link rel="prefetch" href="/assets/js/104.0dbe9dfe.js"><link rel="prefetch" href="/assets/js/105.b6c184df.js"><link rel="prefetch" href="/assets/js/106.8e4e0e75.js"><link rel="prefetch" href="/assets/js/107.3d9a3c22.js"><link rel="prefetch" href="/assets/js/108.af71b47f.js"><link rel="prefetch" href="/assets/js/109.06e12681.js"><link rel="prefetch" href="/assets/js/11.afeb7a91.js"><link rel="prefetch" href="/assets/js/110.80b49b74.js"><link rel="prefetch" href="/assets/js/111.0622b24f.js"><link rel="prefetch" href="/assets/js/112.f3c75e38.js"><link rel="prefetch" href="/assets/js/113.eadb202d.js"><link rel="prefetch" href="/assets/js/114.420776c0.js"><link rel="prefetch" href="/assets/js/115.4bd3dd4b.js"><link rel="prefetch" href="/assets/js/116.bbdd20d3.js"><link rel="prefetch" href="/assets/js/117.d65a7594.js"><link rel="prefetch" href="/assets/js/118.89ed3d7c.js"><link rel="prefetch" href="/assets/js/119.c6b7c8db.js"><link rel="prefetch" href="/assets/js/12.755082ac.js"><link rel="prefetch" href="/assets/js/120.7c4779d6.js"><link rel="prefetch" href="/assets/js/121.3855a83c.js"><link rel="prefetch" href="/assets/js/122.44b68277.js"><link rel="prefetch" href="/assets/js/123.a97a8022.js"><link rel="prefetch" href="/assets/js/124.2ad54503.js"><link rel="prefetch" href="/assets/js/125.3bb499b4.js"><link rel="prefetch" href="/assets/js/126.57c6144e.js"><link rel="prefetch" href="/assets/js/127.d70eb87c.js"><link rel="prefetch" href="/assets/js/128.dd543be0.js"><link rel="prefetch" href="/assets/js/129.20a38a00.js"><link rel="prefetch" href="/assets/js/13.bb9155ca.js"><link rel="prefetch" href="/assets/js/130.5870515f.js"><link rel="prefetch" href="/assets/js/131.39b5206b.js"><link rel="prefetch" href="/assets/js/132.45c759fb.js"><link rel="prefetch" href="/assets/js/133.bb8ebcf2.js"><link rel="prefetch" href="/assets/js/134.b341a0d4.js"><link rel="prefetch" href="/assets/js/135.a1ee28a9.js"><link rel="prefetch" href="/assets/js/136.08e8b21b.js"><link rel="prefetch" href="/assets/js/137.1e168055.js"><link rel="prefetch" href="/assets/js/138.d6fbb060.js"><link rel="prefetch" href="/assets/js/139.615825fd.js"><link rel="prefetch" href="/assets/js/14.fa1750e8.js"><link rel="prefetch" href="/assets/js/140.3ddc1a68.js"><link rel="prefetch" href="/assets/js/141.d2aba130.js"><link rel="prefetch" href="/assets/js/142.ea0f9476.js"><link rel="prefetch" href="/assets/js/143.9027910f.js"><link rel="prefetch" href="/assets/js/144.a1330b1e.js"><link rel="prefetch" href="/assets/js/145.2cdaedab.js"><link rel="prefetch" href="/assets/js/146.6ed0bcc9.js"><link rel="prefetch" href="/assets/js/147.48c8d3e3.js"><link rel="prefetch" href="/assets/js/148.1712f691.js"><link rel="prefetch" href="/assets/js/149.3e8facd1.js"><link rel="prefetch" href="/assets/js/15.f640e766.js"><link rel="prefetch" href="/assets/js/150.bff494b7.js"><link rel="prefetch" href="/assets/js/151.796e031d.js"><link rel="prefetch" href="/assets/js/152.1e9a322b.js"><link rel="prefetch" href="/assets/js/153.c768df77.js"><link rel="prefetch" href="/assets/js/154.9071d5d1.js"><link rel="prefetch" href="/assets/js/155.1eb3e806.js"><link rel="prefetch" href="/assets/js/156.0c67d411.js"><link rel="prefetch" href="/assets/js/157.5981a49d.js"><link rel="prefetch" href="/assets/js/158.d7326c79.js"><link rel="prefetch" href="/assets/js/159.26f17bc9.js"><link rel="prefetch" href="/assets/js/16.8cecea6d.js"><link rel="prefetch" href="/assets/js/160.67819b8e.js"><link rel="prefetch" href="/assets/js/161.65c2014f.js"><link rel="prefetch" href="/assets/js/162.85dc6538.js"><link rel="prefetch" href="/assets/js/163.ad96ab56.js"><link rel="prefetch" href="/assets/js/164.d5b5b524.js"><link rel="prefetch" href="/assets/js/165.0f028fe8.js"><link rel="prefetch" href="/assets/js/166.3aec3743.js"><link rel="prefetch" href="/assets/js/167.052f3ea9.js"><link rel="prefetch" href="/assets/js/168.a180c369.js"><link rel="prefetch" href="/assets/js/169.ba05e5e9.js"><link rel="prefetch" href="/assets/js/17.8b50b1e6.js"><link rel="prefetch" href="/assets/js/170.e2fed86b.js"><link rel="prefetch" href="/assets/js/171.8ee19922.js"><link rel="prefetch" href="/assets/js/172.fa8cb150.js"><link rel="prefetch" href="/assets/js/173.3b7e974b.js"><link rel="prefetch" href="/assets/js/174.0da5c234.js"><link rel="prefetch" href="/assets/js/175.5b23ca2e.js"><link rel="prefetch" href="/assets/js/176.ff6f35aa.js"><link rel="prefetch" href="/assets/js/177.1278af4d.js"><link rel="prefetch" href="/assets/js/178.fa6c19c7.js"><link rel="prefetch" href="/assets/js/179.3154db02.js"><link rel="prefetch" href="/assets/js/18.96a61b2b.js"><link rel="prefetch" href="/assets/js/180.912f7277.js"><link rel="prefetch" href="/assets/js/19.f203dc96.js"><link rel="prefetch" href="/assets/js/20.c71f7061.js"><link rel="prefetch" href="/assets/js/21.cb7542d3.js"><link rel="prefetch" href="/assets/js/22.246167db.js"><link rel="prefetch" href="/assets/js/23.6cce95c2.js"><link rel="prefetch" href="/assets/js/24.5fd5dafb.js"><link rel="prefetch" href="/assets/js/25.9e69e4af.js"><link rel="prefetch" href="/assets/js/26.33d22262.js"><link rel="prefetch" href="/assets/js/27.5595dafe.js"><link rel="prefetch" href="/assets/js/28.a9a51275.js"><link rel="prefetch" href="/assets/js/29.3080f3a8.js"><link rel="prefetch" href="/assets/js/3.ab6b1aea.js"><link rel="prefetch" href="/assets/js/30.c206e260.js"><link rel="prefetch" href="/assets/js/31.54e61129.js"><link rel="prefetch" href="/assets/js/32.3f8a8cbb.js"><link rel="prefetch" href="/assets/js/33.9e409570.js"><link rel="prefetch" href="/assets/js/34.63d7213e.js"><link rel="prefetch" href="/assets/js/35.97cf17f7.js"><link rel="prefetch" href="/assets/js/36.5c41d2c7.js"><link rel="prefetch" href="/assets/js/37.bcdfa6f1.js"><link rel="prefetch" href="/assets/js/38.4b4693a4.js"><link rel="prefetch" href="/assets/js/39.d8ce06f5.js"><link rel="prefetch" href="/assets/js/4.b78ffebc.js"><link rel="prefetch" href="/assets/js/40.91c96d93.js"><link rel="prefetch" href="/assets/js/41.96829336.js"><link rel="prefetch" href="/assets/js/42.d53d5058.js"><link rel="prefetch" href="/assets/js/43.fcc9116c.js"><link rel="prefetch" href="/assets/js/44.67bccb44.js"><link rel="prefetch" href="/assets/js/45.23a12611.js"><link rel="prefetch" href="/assets/js/46.5a523e06.js"><link rel="prefetch" href="/assets/js/47.2ee50a18.js"><link rel="prefetch" href="/assets/js/48.e21d5afe.js"><link rel="prefetch" href="/assets/js/49.7fba0e6f.js"><link rel="prefetch" href="/assets/js/5.13067a2a.js"><link rel="prefetch" href="/assets/js/50.147cbf96.js"><link rel="prefetch" href="/assets/js/51.1ae8f7a0.js"><link rel="prefetch" href="/assets/js/52.6052137e.js"><link rel="prefetch" href="/assets/js/54.702766c5.js"><link rel="prefetch" href="/assets/js/55.aee701da.js"><link rel="prefetch" href="/assets/js/56.83a4359c.js"><link rel="prefetch" href="/assets/js/57.7e69401a.js"><link rel="prefetch" href="/assets/js/58.9e852003.js"><link rel="prefetch" href="/assets/js/59.bd13a387.js"><link rel="prefetch" href="/assets/js/6.5eaeef06.js"><link rel="prefetch" href="/assets/js/60.36068e38.js"><link rel="prefetch" href="/assets/js/61.9fdaf80d.js"><link rel="prefetch" href="/assets/js/62.8b6e1644.js"><link rel="prefetch" href="/assets/js/63.a7d0012e.js"><link rel="prefetch" href="/assets/js/64.4a5b5744.js"><link rel="prefetch" href="/assets/js/65.552c92bb.js"><link rel="prefetch" href="/assets/js/66.73f8964b.js"><link rel="prefetch" href="/assets/js/67.ee9fdca9.js"><link rel="prefetch" href="/assets/js/68.f84a4dda.js"><link rel="prefetch" href="/assets/js/69.3c7ef107.js"><link rel="prefetch" href="/assets/js/7.65b7c119.js"><link rel="prefetch" href="/assets/js/70.a915fa8d.js"><link rel="prefetch" href="/assets/js/71.749212d0.js"><link rel="prefetch" href="/assets/js/72.e8bb00f5.js"><link rel="prefetch" href="/assets/js/73.fda22774.js"><link rel="prefetch" href="/assets/js/74.7c6b7dd6.js"><link rel="prefetch" href="/assets/js/75.eca24732.js"><link rel="prefetch" href="/assets/js/76.d23d84ef.js"><link rel="prefetch" href="/assets/js/77.222f80b1.js"><link rel="prefetch" href="/assets/js/78.4e17f60b.js"><link rel="prefetch" href="/assets/js/79.9d2e8924.js"><link rel="prefetch" href="/assets/js/8.ce511d67.js"><link rel="prefetch" href="/assets/js/80.a7ed7827.js"><link rel="prefetch" href="/assets/js/81.c6ad77a1.js"><link rel="prefetch" href="/assets/js/82.478675a2.js"><link rel="prefetch" href="/assets/js/83.1a5cf750.js"><link rel="prefetch" href="/assets/js/84.f0c6c46b.js"><link rel="prefetch" href="/assets/js/85.96b40a5e.js"><link rel="prefetch" href="/assets/js/86.bcc1169c.js"><link rel="prefetch" href="/assets/js/87.f99e1617.js"><link rel="prefetch" href="/assets/js/88.9a1608f4.js"><link rel="prefetch" href="/assets/js/89.32c90dd8.js"><link rel="prefetch" href="/assets/js/9.322ac52a.js"><link rel="prefetch" href="/assets/js/90.adb799db.js"><link rel="prefetch" href="/assets/js/91.8f392d72.js"><link rel="prefetch" href="/assets/js/92.c6f968ce.js"><link rel="prefetch" href="/assets/js/93.ddcd6344.js"><link rel="prefetch" href="/assets/js/94.6b883a69.js"><link rel="prefetch" href="/assets/js/95.11d57b1f.js"><link rel="prefetch" href="/assets/js/96.d4104947.js"><link rel="prefetch" href="/assets/js/97.59a5b2ec.js"><link rel="prefetch" href="/assets/js/98.0f7459bc.js"><link rel="prefetch" href="/assets/js/99.a0073464.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.a8c216e1.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Guangyuan's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/基础/" class="nav-link">
+  FE-前端
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/基础/" class="nav-link">
+  FE-前端
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>JavaScript基础</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>ES6</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>计算机网络</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>TypeScript</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>认知</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>web安全</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>算法和数据结构</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/基础/算法和数据结构/01-数组中的问题.html" class="sidebar-link">01-数组中相关问题</a></li><li><a href="/基础/算法和数据结构/leetcode.html" class="active sidebar-link">bobo老师玩转算法</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/基础/算法和数据结构/回朔算法.html" class="sidebar-link">回朔算法</a></li><li><a href="/基础/算法和数据结构/动态规划.html" class="sidebar-link">动态规划</a></li><li><a href="/基础/算法和数据结构/BFS.html" class="sidebar-link">BFS</a></li><li><a href="/基础/算法和数据结构/DFS.html" class="sidebar-link">DFS</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>课程笔记</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>vue</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="基础算法思路的应用"><a href="#基础算法思路的应用" class="header-anchor">#</a> 基础算法思路的应用</h3> <p>系统性的学习资源 清华大学幕客</p> <p>![image-20211110164306441](/Users/bobtang/Library/Application Support/typora-user-images/image-20211110164306441.png)</p> <p>![image-20211109100436427](/Users/bobtang/Library/Application Support/typora-user-images/image-20211109100436427.png)</p> <blockquote><p>计数排序；桶排序</p> <p>大量重复的元素：快排</p></blockquote> <h3 id="三路快排"><a href="#三路快排" class="header-anchor">#</a> 三路快排</h3> <p>![image-20211110131440856](/Users/bobtang/Library/Application Support/typora-user-images/image-20211110131440856.png)</p> <blockquote><p>将整个数组分成3部分</p></blockquote> <p>![image-20211109113420056](/Users/bobtang/Library/Application Support/typora-user-images/image-20211109113420056.png)</p> <p>适合大量的元素重复的情况</p> <h3 id="很多题目都是基于基础算法来实现的"><a href="#很多题目都是基于基础算法来实现的" class="header-anchor">#</a> 很多题目都是基于基础算法来实现的</h3> <ul><li><p>88 Merge sorted Array (归并排序中的归并操作)</p></li> <li><p>215 Kth larget Element in an Array (利用亏安排partition中，将pivot防止在其正确位置上的性质)</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+    <span class="token class-name">Random</span> random <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">findKthLargest</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">quickSelect</span><span class="token punctuation">(</span>nums<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> nums<span class="token punctuation">.</span>length <span class="token operator">-</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">quickSelect</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">,</span> <span class="token keyword">int</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> q <span class="token operator">=</span> <span class="token function">randomPartition</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> l<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>q <span class="token operator">==</span> index<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> a<span class="token punctuation">[</span>q<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> q <span class="token operator">&lt;</span> index <span class="token operator">?</span> <span class="token function">quickSelect</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> q <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token function">quickSelect</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> l<span class="token punctuation">,</span> q <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">randomPartition</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> i <span class="token operator">=</span> random<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span>r <span class="token operator">-</span> l <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">+</span> l<span class="token punctuation">;</span>
+        <span class="token function">swap</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> i<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token function">partition</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> l<span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">partition</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> l<span class="token punctuation">,</span> <span class="token keyword">int</span> r<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> x <span class="token operator">=</span> a<span class="token punctuation">[</span>r<span class="token punctuation">]</span><span class="token punctuation">,</span> i <span class="token operator">=</span> l <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> l<span class="token punctuation">;</span> j <span class="token operator">&lt;</span> r<span class="token punctuation">;</span> <span class="token operator">++</span>j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>a<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">&lt;=</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token function">swap</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token operator">++</span>i<span class="token punctuation">,</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">swap</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> r<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">swap</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a<span class="token punctuation">,</span> <span class="token keyword">int</span> i<span class="token punctuation">,</span> <span class="token keyword">int</span> j<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> temp <span class="token operator">=</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> a<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        a<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br></div></div></li></ul> <h3 id="_167-two-sum-i-input-array-is-sorted"><a href="#_167-two-sum-i-input-array-is-sorted" class="header-anchor">#</a> 167 Two Sum I Input array is sorted</h3> <blockquote><p>解题时，明确细节</p> <p>数组有序 ===》 二分查找</p> <p>暴力解法0(n^2) --&gt; 0n * log(n)</p></blockquote> <p>双指针 夹逼</p> <ul><li>125 Valid Palindrome （回文串）</li> <li>244 Reverse String</li> <li>345 Reverse Vowels of a String</li> <li>Container With Most water (容乃最多水)</li></ul> <h3 id="双指针"><a href="#双指针" class="header-anchor">#</a> 双指针</h3> <p>滑动窗口：适合解决子串问题</p> <ul><li>209 Minum Size Subarray Sum</li></ul> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token comment">/**
+ * @param {number} target
+ * @param {number[]} nums
+ * @return {number}
+ */</span>
+<span class="token keyword">var</span> <span class="token function-variable function">minSubArrayLen</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> nums</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span>  left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> right <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span><span class="token comment">// nums[l,r]为滑动窗口</span>
+    <span class="token keyword">let</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> res <span class="token operator">=</span> nums<span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">//滑动窗口长度</span>
+    <span class="token keyword">while</span><span class="token punctuation">(</span>left <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>right<span class="token operator">+</span><span class="token number">1</span> <span class="token operator">&lt;</span> nums<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token operator">&amp;&amp;</span> sum <span class="token operator">&lt;</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment">// 向滑动窗口添加值</span>
+            sum <span class="token operator">+=</span> nums<span class="token punctuation">[</span><span class="token operator">++</span>right<span class="token punctuation">]</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            sum <span class="token operator">-=</span> nums<span class="token punctuation">[</span>left<span class="token operator">++</span><span class="token punctuation">]</span>
+        <span class="token punctuation">}</span>
+        <span class="token comment">// 找到目标值</span>
+        <span class="token keyword">if</span><span class="token punctuation">(</span>sum <span class="token operator">&gt;=</span> target<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            res <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">min</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span>right<span class="token operator">-</span>left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 未更新</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>res <span class="token operator">===</span> nums<span class="token punctuation">.</span>length <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">else</span> <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br></div></div><p>![image-20211117101340681](/Users/bobtang/Library/Application Support/typora-user-images/image-20211117101340681.png)</p> <ul><li>3 Longest Substring Without Repeating Characters</li></ul> <div class="language-c++ line-numbers-mode"><pre class="language-text"><code>class Solution {
+public:
+    string minWindow(string s, string t) {
+        unordered_map&lt;char,int&gt; need,window;
+        for(char c : t) need[c]++;
+        int left = 0,right = 0;
+        int len = INT_MAX,start = 0;
+        int valid = 0;
+        while(right &lt; s.size()) {
+            char c = s[right];
+            right ++;
+
+            if(need.count(c)) {
+                window[c] ++;
+                if(window[c] == need[c]) {
+                    valid ++;
+                }
+            }
+
+            while(valid == need.size()) {
+                // 更新当前的子串长度，和起始索引
+                if(right - left &lt; len) {
+                    start = left;
+                    len = right - left;
+                }
+                char item = s[left];
+                left ++;
+                if(need.count(item)) {
+                    if(window[item] == need[item]) valid--;
+                    window[item] --;
+                }
+            }
+        }
+        return len == INT_MAX ? &quot;&quot; : s.substr(start,len);
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><p>![image-20211115101940992](/Users/bobtang/Library/Application Support/typora-user-images/image-20211115101940992.png)</p> <ul><li>438 Find All Anagrams in a String</li></ul> <div class="language-c++ line-numbers-mode"><pre class="language-text"><code>class Solution {
+public:
+    vector&lt;int&gt; findAnagrams(string s, string p) {
+        // 存储结果
+        vector&lt;int&gt; res;
+        unordered_map&lt;char,int&gt; need,window;
+        for(char c : p) need[c]++;
+        int left = 0,right = 0;//[left,right)
+        // 当前滑动窗口中，满足要求的字符个数
+        int valid = 0;
+
+        while(right &lt; s.size()) {
+            // 滑动窗口先扩大
+            char c = s[right];
+            right ++;
+            if(need.count(c)) {
+                window[c] ++;
+                if(window[c] == need[c]) {
+                    valid ++;
+                }
+            }
+
+            // 窗口开始收缩时机，
+            while(right - left &gt;= p.size()) {
+                if(valid == need.size()) {
+                    // 先保存
+                    res.push_back(left);
+                }
+
+                char t = s[left];
+                left ++;
+                if(need.count(t)) {
+                    if(window[t] == need[t]) valid --;
+                    window[t]--;
+                }
+            }
+
+        }
+        return res;
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br></div></div><ul><li>76 Minimum Window Substring</li></ul> <div class="language-c++ line-numbers-mode"><pre class="language-text"><code>class Solution {
+public:
+    string minWindow(string s, string t) {
+        unordered_map&lt;char,int&gt; need,window;
+        for(char c : t) need[c]++;
+        int left = 0,right = 0;
+        int len = INT_MAX,start = 0;
+        int valid = 0;
+        while(right &lt; s.size()) {
+            char c = s[right];
+            right ++;
+
+            if(need.count(c)) {
+                window[c] ++;
+                if(window[c] == need[c]) {
+                    valid ++;
+                }
+            }
+
+            while(valid == need.size()) {
+                // 更新当前的子串长度，和起始索引
+                if(right - left &lt; len) {
+                    start = left;
+                    len = right - left;
+                }
+                char item = s[left];
+                left ++;
+                if(need.count(item)) {
+                    if(window[item] == need[item]) valid--;
+                    window[item] --;
+                }
+            }
+        }
+        return len == INT_MAX ? &quot;&quot; : s.substr(start,len);
+    }
+};
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br></div></div><h3 id="_48-最长无重复子串"><a href="#_48-最长无重复子串" class="header-anchor">#</a> 48 最长无重复子串</h3> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token punctuation">{</span>
+<span class="token keyword">public</span><span class="token operator">:</span>
+    int <span class="token function">lengthOfLongestSubstring</span><span class="token punctuation">(</span><span class="token parameter">string s</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 滑动窗口中的记录</span>
+        unordered_map<span class="token operator">&lt;</span>char<span class="token punctuation">,</span>int<span class="token operator">&gt;</span> window<span class="token punctuation">;</span>
+        int left <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        int len <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span><span class="token punctuation">(</span>right <span class="token operator">&lt;</span> s<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            char c <span class="token operator">=</span> s<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            right <span class="token operator">++</span><span class="token punctuation">;</span>
+            window<span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token operator">++</span><span class="token punctuation">;</span>
+          	<span class="token comment">// 收缩的关键是其中没有重复的子串</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span>window<span class="token punctuation">[</span>c<span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                char d <span class="token operator">=</span> s<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                left <span class="token operator">++</span><span class="token punctuation">;</span>
+                window<span class="token punctuation">[</span>d<span class="token punctuation">]</span> <span class="token operator">--</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            len <span class="token operator">=</span> <span class="token function">max</span><span class="token punctuation">(</span>len<span class="token punctuation">,</span>right<span class="token operator">-</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> len<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>  
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/基础/算法和数据结构/01-数组中的问题.html" class="prev">
+        01-数组中相关问题
+      </a></span> <span class="next"><a href="/基础/算法和数据结构/回朔算法.html">
+        回朔算法
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.0a95b95c.js" defer></script><script src="/assets/js/2.1c893925.js" defer></script><script src="/assets/js/53.130f600a.js" defer></script>
+  </body>
+</html>
