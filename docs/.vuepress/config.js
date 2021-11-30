@@ -62,18 +62,6 @@ function renderSideBar() {
                 ]
             },
             {
-                title: "TypeScript",
-                children: [
-                    ['TypeScript/01-Typescript和Javascript.md', '01-Typescript和Javascript'],
-                ]
-            },
-            {
-                title: "认知",
-                children: [
-                    ['/前端基础/认知/01-学会如何学习.md', '01-学会如何学习'],
-                ]
-            },
-            {
                 title: 'web安全',
                 children: [
                     ['web安全/常见的web安全问题.md', '01-常见的web安全']
@@ -101,8 +89,12 @@ function renderSideBar() {
                     ['课程笔记/读牙羽的文章摘抄', '读牙羽的文章摘抄'],
                     ['课程笔记/CDN.md', 'CDN'],
                     ['课程笔记/Vue 常考基础知识点.md', 'Vue 常考基础知识点'],
-                    ['课程笔记/Vue 常考进阶知识点.md', 'Vue 常考进阶知识点']
-
+                ]
+            },
+            {
+                title: "TypeScript",
+                children: [
+                    ['TypeScript/01-Typescript和Javascript.md', '01-Typescript和Javascript'],
                 ]
             },
             {
@@ -114,10 +106,17 @@ function renderSideBar() {
             {
                 title: "CSS",
                 children: [
-                    ['CSS/盒子模型.md', '盒子模型'],
-                    ['CSS/flex布局.md', 'flex布局'],
+                    ['CSS/01-盒模型和BFC&IFC.md', '01-盒模型和BFC&IFC'],
+                    ['CSS/02-选择器.md', '02-选择器'],
+                    ['CSS/03-flex布局.md', '03-flex布局'],
                 ]
-            }
+            }, {
+                title: "认知",
+                children: [
+                    ['/基础/认知/01-学会如何学习.md', '01-学会如何学习'],
+                ]
+            },
         ],
+
     } // 侧边栏配置
 }

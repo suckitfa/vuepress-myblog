@@ -32,11 +32,36 @@ webpack默认入口为`/src/index.js`
 
 ![image-20211130163558425](./img/image-20211130163558425.png)
 
+**常用文件夹**
+
+`paths.js`
+
+```js
+const path = require('path');
+// 源代码路径 （根据具体情况设置）
+const srcPath = path.join(__dirname,'..','src');
+// 打包后资源的路径
+const distPath = path.join(__dirname,'..','dist');
+```
+
+
+
+**拆分配置和merge**
+
 - webpack.common.js
 - webpack.dev.js
 - webpack.prod.js
 
+```js
+// webpack.dev.js
+const {smart} = require('webpack-merge');
+const webCommon = require('./webpack.common.js')
+module.exports = smart(webCommon,{
+  
+});
+```
 
+### 处理样式
 
 1. **处理css**
 
@@ -54,7 +79,7 @@ loader从后面往前执行，css-loader解析css,style-loader插入页面
 
 less-loader,sess-loader
 
-3. 处理图片
+### 处理图片
 
 **开发环境**
 
@@ -87,8 +112,6 @@ module.exports = {
 }
 ```
 
-
-
 ### babel
 
 `.babelrc`
@@ -97,6 +120,38 @@ module.exports = {
 {
   "presets":["@babel/preset-env"],
     "plugins":[]
+}
+```
+
+
+
+### 高级配置
+
+- 多入口多出口
+
+```js
+entry: {
+  	index:path.join(srcPath,'index.js'),
+     other:path.join(srcPath,'other.js')
+},
+  output: {
+    // name 即多入口时 entry 的 key
+    filename:'[name].[contentHash:8].js',
+     path:distPath,
+  }
+plugis: {
+  // 多出口，生成index.html
+  new HtmlWebpackPlugin({
+    template:path.join(srcPath,'index.html'),
+    filename:'index.html',
+    chunks:['index']
+  }),
+      // 多出口，other.html
+    new HtmlWebpackPlugin({
+    	template:path.join(srcPath,'other.html'),
+	    filename:'other.html',
+  	  chunks:['other']
+  }),
 }
 ```
 
