@@ -1,5 +1,5 @@
 ### flex
-flext用来生成flex容器，是一种很好的布局方案，对移动端适配性很好。
+flex用来生成flex容器，是一种很好的布局方案，对移动端适配性很好。
 采用flex布局的元素称为flex container，子元素为flex item.
 
 布局特点
