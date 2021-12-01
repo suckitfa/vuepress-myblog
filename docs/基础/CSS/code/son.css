@@ -1,0 +1,10 @@
+.son {
+    box-sizing:border-box;
+    width:100px;
+    height:100px;
+    border:2px solid red;
+    background-color:green;
+    /* 文字水平垂直居中 */
+    text-align:center;
+    line-height:100px;
+}
