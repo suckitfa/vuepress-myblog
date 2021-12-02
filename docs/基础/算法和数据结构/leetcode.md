@@ -135,7 +135,7 @@ var minSubArrayLen = function(target, nums) {
 
 - 3 Longest Substring Without Repeating Characters
 
-```c++
+```cpp
 class Solution {
 public:
     string minWindow(string s, string t) {
@@ -180,7 +180,7 @@ public:
 
 - 438 Find All Anagrams in a String
 
-```c++
+```cpp
 class Solution {
 public:
     vector<int> findAnagrams(string s, string p) {
@@ -228,7 +228,7 @@ public:
 
 - 76 Minimum Window Substring
 
-```c++
+```cpp
 class Solution {
 public:
     string minWindow(string s, string t) {
