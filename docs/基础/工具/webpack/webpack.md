@@ -30,7 +30,6 @@ webpack默认入口为`/src/index.js`
 >
 > loader从后面向前执行
 
-![image-20211130163558425](./img/image-20211130163558425.png)
 
 **常用文件夹**
 
