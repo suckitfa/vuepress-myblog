@@ -1,7 +1,7 @@
 # 大纲
 - callback
 - promise的应用
-- all race fianlly
+- all race fianlly allSettled
 - generator + co => async + await
 
 # 概念介绍 
