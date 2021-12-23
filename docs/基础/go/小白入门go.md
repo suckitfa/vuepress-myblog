@@ -25,6 +25,7 @@ go clean --modcache
 
 2. **开发工具 vscode + 对应go插件**（推荐）
 
+
 3. https://go.dev/play/
 
    > 代码交流,: 
@@ -34,6 +35,8 @@ go clean --modcache
    ```js
    https://go.dev/play/p/MAohLsrz7JQ?v=gotip
    ```
+
+4. 官方训练场： https://tour.go-zh.org/basics/1
 
 4. go的文档
 
@@ -72,9 +75,23 @@ fmt.Printf("%d",n)
 
 符号`:=`简写这些过程
 
+### 查看数据类型和内存大小
 
+- `fmt.Prinf("%T")`
+- `unsafe.Sizeof()` 返回字节数的大小
 
+```go
+// 判断数据类型
+name := "shit"
+fmt.Printf("%T",name) // string
 
+// 查看内存大小
+var n1 int64 = 10
+// unsafe.Sizeof(n1); 返回占用的字节数
+fmt.Printf("%d",unsafe.Sizeof(n1)) // 8
+```
+
+**程序运行中在符合业务需求下尽量使用占空间小的数据类型**
 
 ### 组合的坚定支持者
 
@@ -232,3 +249,85 @@ scores := make([]int,0,10)
 ```
 
 append 是相当特别的。如果底层数组满了，它将创建一个更大的数组并且复制所有原切片中的值（这个就很像动态语言 PHP，Python，Ruby，JavaScript 的工作方式）。这就是为什么上面的例子中我们必须重新将 append 返回的值赋值给 scores 变量：append 可能在原有底层数组空间不足的情况下创建了新值
+
+**切片初始化**
+
+```go
+names := []string {"hello","world"}
+checks := make([]bool,10)
+var names []string
+scores := make([]int,0,20)
+```
+
+切片是数组的包装
+
+
+
+
+
+### 映射
+
+键值对
+
+```go
+lookup := make(map[string]int)
+```
+
+- len 返回键值对的数目
+
+- delete
+
+  ```go
+  delete(lookup,"goku")
+  ```
+
+- 迭代 `for-range`
+
+  ```go
+  for key,value := range lookup {
+  }
+  ```
+
+
+
+## 包管理
+
+需要注意包名和文件夹名是一样的。而且很明显我们实际并没有连接数据库。这里使用这个例子只是为了展示如何组织代码。
+
+
+
+Go 用了一个简单的规则去定义什么类型和函数可以包外可见。如果类型或者函数名称以一个大写字母开始，它就具有了包外可见性。如果以一个小写字母开始，它就不可以。
+
+
+
+
+
+### 接口
+
+
+
+### defer调用
+
+defer调用
+
+- 确保在函数结束的时候执行
+
+- `defer`调用先进后出，使用栈来管理。
+- 被调用的函数中的参数在defer的时候被计算
+
+`panic`也不会阻断defer执行
+
+### 常见的调用情况
+
+```go
+Open/Close
+Lock/Unlock
+PrintHeader/PrintFooter
+```
+
+
+
+
+
+带`buffer`, 先写入内存，到达一定的是哦
+
