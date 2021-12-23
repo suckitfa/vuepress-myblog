@@ -93,3 +93,46 @@ Promise.race = function(promises) {
     })
 }
 ```
+
+### Promise.allSettled
+> 传入一个Promise数组，数组里面的元素全部为为rejected或者resolved的状态，返回数组结果
+> 计数器 + 迭代
+```js
+Promise.allSettled = allSettled
+function allSettled(promises) {
+    if(proimses.length === 0) return Promise.resolve([])
+
+    const _promises = proimses.map(
+        item => item instanceof Promise ? item : Promise.resolve(item)
+    )
+
+    return new Promise((resolve,reject) => {
+        const result = []
+        let unSettledPromiseCount = _proimses.length
+
+        _promises.forEach((promise,index) => {
+            promise.then(value => {
+                result[index] = {
+                    status:'fulfilled',
+                    value
+                }
+
+                unSettledPromiseCount -= 1
+                if(unSettledPromiseCount === 0) {
+                    resolve(result)
+                }
+            },reason => {
+                result[index] = {
+                    status:'rejected',
+                    value
+                }
+
+                unSettledPromiseCount -= 1
+                if(unSettledPromiseCount === 0) {
+                    resolve(result)
+                }
+            })
+        })
+    })
+}
+```
