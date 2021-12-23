@@ -32,3 +32,64 @@ function read(url) {
     })
 }
 ```
+
+### Promise.race
+```js
+Promise.all = function(promises) {
+    return new Promise((resolve,reject)=>{
+        if(!Array.isArray(promises)) {
+            throw new TypeError("promises must be an array")
+        }
+        const result = []
+        let count = 0
+        promises.forEach((promise,index)=>{
+            promise.then((res)=>{
+                result[index] = res
+                count ++
+                // 关键
+                count === promises.length && resolve(result)
+            },err=>{
+                reject(err)
+            })
+        })
+    })
+}
+```
+
+### Promise.finally
+```js
+Promise.prototype = function(cb) {
+    return this.then(
+        function(value) {
+            return Promise.resolve(cb()).then(
+                function() {
+                    return value
+                },
+                function(err) {
+                    return Promise.resolve(cb()).then(
+                        function() {
+                            throw err
+                })
+        })
+    })
+}
+```
+
+### Promise.race
+```js
+Promise.race = function(promises) {
+    if(!Array.isArray(promises)) {
+        throw new TypeError("promises must be an array")
+    }
+    return new Promise((resolve,reject)=>{
+        promises.forEach((promise,index)=>{
+            promise.then(res=>{
+                // 直接返回
+                resolve(res)
+            },err=>{
+                reject(err)
+            })
+        })
+    })
+}
+```
