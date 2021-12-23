@@ -153,6 +153,11 @@ typeof function() {} // 'function'
 7. isFunction()
 8. isRegExp()
 ```
+
+#### 一行代码判断数据类型
+```js
+const getType = val => Object.prototype.toString.call(val).slice(8,-1).toLowerCase()
+```
 ### 类型转换
 
 ## 类型转换

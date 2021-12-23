@@ -43,6 +43,8 @@ function renderSideBar() {
                     ['JavaScript基础/11-eventLoop.md', '11-eventloop'],
                     ['JavaScript基础/12-js模块化.md', '12-js的模块化'],
                     ['JavaScript基础/13-防抖和节流.md', '13-防抖和节流'],
+                    ['JavaScript基础/模块化.md', '模块化'],
+                    ['JavaScript基础/sleep.md', 'sleep'],
                 ]
             },
             {
