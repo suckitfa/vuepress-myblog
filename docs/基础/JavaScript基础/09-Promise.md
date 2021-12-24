@@ -34,6 +34,8 @@ function read(url) {
 ```
 
 ### Promise.race
+> 传入promise实例数组，返回数组包含Proimse实例的结果值;如果其中一个Promise实例出现错误，直接拒绝Promise
+
 ```js
 Promise.all = function(promises) {
     return new Promise((resolve,reject)=>{
@@ -55,23 +57,56 @@ Promise.all = function(promises) {
     })
 }
 ```
-
+### Promise.allSettled
+> settled的状态是指Promise实例为resolved或者为rejected
+```js
+Promise.allSettled = function(promises) {
+    if(!Array.isArray(promises)) {
+        throw new TypeError('promises is not an array!')
+    }
+    if(promises.length === 0) return Promise.resolve([])
+    // 确保传入的内容都为Promise实例
+    const _promises = promises.map(
+        item => item instanceof Promise ? item: Promise.resolve(item)
+    )
+    return new Promise((resolve,reject) => {
+        const result = [];
+        const unSettledPromiseCount = _promises.length;
+        _promises.forEach((promise,index) => {
+            promise.then(value => {
+                result[index] = {
+                    status:'fulfilled',
+                    value
+                }
+                unSettledPromiseCount -= 1
+                if(unSettledPromiseCount === 0) resolve(result);
+            },
+            reason => {
+                result[index] = {
+                    status:'rejected',
+                    reason
+                }
+                unSettledPromiseCount -= 1
+                if(unSettledPromiseCount === 0) {
+                    resolve(result);
+                }
+            }
+            )
+        })
+    })
+}
+```
 ### Promise.finally
 ```js
 Promise.prototype = function(cb) {
     return this.then(
-        function(value) {
-            return Promise.resolve(cb()).then(
-                function() {
-                    return value
-                },
-                function(err) {
-                    return Promise.resolve(cb()).then(
-                        function() {
-                            throw err
-                })
-        })
-    })
+        value => {
+            return Promise.resolve(cb()).then(() => value)
+        },
+        error => {
+            return Promise.resolve(cn()).then(() => throw error)
+        }
+    )
 }
 ```
 
@@ -81,8 +116,11 @@ Promise.race = function(promises) {
     if(!Array.isArray(promises)) {
         throw new TypeError("promises must be an array")
     }
+    const _promises = promises.map(
+        item => item instanceof Promise ? item : Promise.resolve(item)
+    )
     return new Promise((resolve,reject)=>{
-        promises.forEach((promise,index)=>{
+        _promises.forEach((promise,index)=>{
             promise.then(res=>{
                 // 直接返回
                 resolve(res)
@@ -94,44 +132,25 @@ Promise.race = function(promises) {
 }
 ```
 
-### Promise.allSettled
-> 传入一个Promise数组，数组里面的元素全部为为rejected或者resolved的状态，返回数组结果
-> 计数器 + 迭代
+### Promise.any
+> 有一个promises为成功的就返回，如果所有的都失败则抛出错误
 ```js
-Promise.allSettled = allSettled
-function allSettled(promises) {
-    if(proimses.length === 0) return Promise.resolve([])
-
-    const _promises = proimses.map(
-        item => item instanceof Promise ? item : Promise.resolve(item)
-    )
-
+Promise.any = function(promises) {
+    let index = 0;
+    if(promises.length === 0) return;
     return new Promise((resolve,reject) => {
-        const result = []
-        let unSettledPromiseCount = _proimses.length
-
-        _promises.forEach((promise,index) => {
-            promise.then(value => {
-                result[index] = {
-                    status:'fulfilled',
-                    value
+        promises.forEach((promise,index) => {
+            Promise.resolve(promise).then(
+                val => {
+                    resolve(val);
+                },
+                err => {
+                    index ++;
+                    if(index === promises.length) {
+                        reject(new AggregateError("all promises were rejected"))
+                    }
                 }
-
-                unSettledPromiseCount -= 1
-                if(unSettledPromiseCount === 0) {
-                    resolve(result)
-                }
-            },reason => {
-                result[index] = {
-                    status:'rejected',
-                    value
-                }
-
-                unSettledPromiseCount -= 1
-                if(unSettledPromiseCount === 0) {
-                    resolve(result)
-                }
-            })
+            )
         })
     })
 }

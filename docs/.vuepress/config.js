@@ -33,6 +33,7 @@ function renderSideBar() {
                     ['JavaScript基础/01-JavaScript数据类型及其相关问题.md', '01-JavaScript数据类型及其相关问题'],
                     ['JavaScript基础/02-数据拷贝.md', '02-数据拷贝'],
                     ['JavaScript基础/03-原型链和继承.md', '03-原型链和继承'],
+                    ['JavaScript基础/03-1-对象的继承.md', '03-1-对象的继承'],
                     ['JavaScript基础/04-JavaScript执行过程.md', '04-JavaScript执行过程'],
                     ['JavaScript基础/05-this指向.md', '05-this指向'],
                     ['JavaScript基础/06-闭包.md', '06-闭包'],
