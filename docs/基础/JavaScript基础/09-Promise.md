@@ -155,3 +155,10 @@ Promise.any = function(promises) {
     })
 }
 ```
+
+### Promise中的关键 resolvePromise
+```js
+function resolvePromise(x,promise2,resolve,reject) {
+    
+}
+```
