@@ -2,4 +2,4 @@ function sleep() {
 
 }
 
-const sleep = time => new Promise(resolve => setTimeout(time))
+const sleep = time => new Promise(resolve => setTimeout(resolve, time))

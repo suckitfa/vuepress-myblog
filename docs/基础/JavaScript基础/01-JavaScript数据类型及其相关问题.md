@@ -2,19 +2,29 @@
 
 ### Javascript的数据类型
 
+JS中的数据类型分为`基本数据类型`和`引用数据类型`
+
+![image-20211227135927588](./img/image-20211227135927588.png)
+
 1. 基本数据类型
 > 存储的都是值
 - string
 - number
+
+![image-20211227140239872](./img/image-20211227140239872.png)
+
 ```js
   // 特殊的情况
   typeof NaN // number
   NaN === NaN // false
-  // JS中的数字存储为IEEE 754标准，全部用浮点数存储
-  
+  // JS中的数字存储为IEEE 754标准，全部用浮点数存储，存在精度问题。
+0.1 + 0.2 === 0.3 // false
 ```
+![image-20211227140158375](./img/image-20211227140158375.png)
+
 - boolean
 - null
+
 ```js
 typeof null // 'object'
 ```
@@ -55,7 +65,7 @@ typeof function() {} // 'function'
 
 
 > null不是对象，传统bug
-   
+
    ```js
    typeof 1 // 'number'
    typeof false // 'boolean'
@@ -158,7 +168,7 @@ typeof function() {} // 'function'
 ```js
 const getType = val => Object.prototype.toString.call(val).slice(8,-1).toLowerCase()
 ```
-### 类型转换
+
 
 ## 类型转换
 
