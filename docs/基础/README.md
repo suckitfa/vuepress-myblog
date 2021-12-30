@@ -4,6 +4,14 @@
 
 ### 资源
     - https://tailblocks.cc
+    - https://devtool.tech
+    - 无线电: https://www.anywlan.com/reg.html
+    - 破解： https://www.52pojie.cn/
+#### 山月大佬
+    - https://github.com/shfshanyue
+    - 掘金
+    - b站模拟面试视频 (important)
+    - https://q.shanyue.tech/engineering/
 ### 大佬们的博客
 - https://javascript.ruanyifeng.com/
 ### 前端相关的博客

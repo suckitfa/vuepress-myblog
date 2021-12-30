@@ -11,3 +11,6 @@
 4. 自己可以改进的地方
 
 
+### 排序专题
+- https://juejin.cn/post/6844903504654368781
+- 排序算法可视化演示: https://www.toptal.com/developers/sorting-algorithms
