@@ -2,6 +2,8 @@
 ### 规范
 - https://www.w3.org/TR/DOM-Level-3-Events/
 
+### 资源
+    - https://tailblocks.cc
 ### 大佬们的博客
 - https://javascript.ruanyifeng.com/
 ### 前端相关的博客
