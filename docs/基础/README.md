@@ -3,6 +3,7 @@
 - https://www.w3.org/TR/DOM-Level-3-Events/
 
 ### 资源
+    - 搭积木式构建APP: https://appinventor.mit.edu/explore/ai2/setup
     - https://tailblocks.cc
     - https://devtool.tech
     - 无线电: https://www.anywlan.com/reg.html
