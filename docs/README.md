@@ -3,7 +3,7 @@ home: true
 heroImage: /img/logo.jpg
 heroText: Be humble & hungry
 tagline: Keep learning
-actionText: Get power →
+actionText: Go Learning→
 actionLink: /基础/
 features:
 - title: FE - 前端
