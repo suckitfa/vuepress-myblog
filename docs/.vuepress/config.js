@@ -49,6 +49,12 @@ function renderSideBar() {
                 ]
             },
             {
+                title: "node",
+                children: [
+                    ['node/koa的中间件机制.md', 'Koa中间件机制'],
+                ]
+            },
+            {
                 title: "ES6",
                 children: [
                     ['ES6/01-let-const.md', '01-let-const'],
