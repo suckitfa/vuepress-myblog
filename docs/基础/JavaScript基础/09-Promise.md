@@ -58,7 +58,7 @@ Promise.all = function(promises) {
 }
 ```
 ### Promise.allSettled
-> settled的状态是指Promise实例为resolved或者为rejected
+> `settled`的状态是指Promise实例为`resolved`或者为`rejected`
 ```js
 Promise.allSettled = function(promises) {
     if(!Array.isArray(promises)) {
