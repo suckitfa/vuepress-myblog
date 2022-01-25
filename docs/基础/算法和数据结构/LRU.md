@@ -165,33 +165,37 @@ class LRUCache {
             let newNode = new ListNode(key,value)
             this.hash[key] = newNode
             this.addToHead(newNode)
-            this.count++
         } else {
             node.value = value
             this.moveToHead(node)
         }
     }
-    // double link list 基础操作封装
-    moveToHead(node) {
-        this.removeFromList(node)
-        this.addToHead(node)
-    }
+    // double link list 在lru中最为基础的，最为基础操作封装
     removeFromList(node) {
         let temp1 = node.prev
         let temp2 = node.next
         temp1.next = temp2
         temp2.prev = temp1
+        this.count --
     }
+    
     addToHead(node) {
         node.prev = this.dummyHead
         node.next = this.dummyHead.next
         this.dummyHead.next.prev = node
         this.dummyHead.next = node
+        this.count ++
     }
+    // lru 的两个特殊位置 dummyHead, dummyTail
+    // 移除头部节点
+    moveToHead(node) {
+        this.removeFromList(node)
+        this.addToHead(node)
+    }
+    // 删除hash表中的内容
     removeLRUItem() {
         const tail = this.popTail()
         delete this.hash[tail.key]
-        this.count --
     }
     // 移除最后一个
     popTail() {
