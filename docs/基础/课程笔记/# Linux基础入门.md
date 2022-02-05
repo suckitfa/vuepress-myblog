@@ -403,3 +403,107 @@ cd ~
 cat .profile
 ```
 
+- **命令的查找路径与顺序**
+
+  创建文件hello_shell.sh
+
+  ```sh
+  for((i=0; i<10; i++));do
+  	echo "hello shell"
+  done
+  exit 0
+  ```
+
+  为文件添加执行权限 (Linux系统不是根据文件的后缀名来区分是否可以执行的)
+
+  ![image-20220205214825904](./img/image-20220205214825904.png)
+
+  ```sh
+  # 添加执行权限
+  chmod 755 hello_shell.sh
+  # 执行该文件
+  ./hello_shell.sh
+  ```
+
+  2. 创建c语言文件 hello_world.c
+
+  ```sh
+  gedit hello_world.c
+  ```
+
+  编写下面文件
+
+  ```c
+  #include<stdio.h>
+  int main(void) {
+    printf("Hello world!\n");
+    return 0;
+  }
+  ```
+
+  编译链接C语言文件
+
+  ```sh
+  # 根据源代码文件hello_world.c 生成 hello_world可执行文件
+  gcc -o hello_world hello_world.c
+  ```
+
+  **将mybin中的可执行文件加入PATH变量中**
+
+  ```sh
+  # 必须使用绝对路径 修改 .zshrc文件
+  PATH=$PATH:/home/shiyanlou/mybin
+  ```
+
+  > `>` 表示覆盖的方式定向到一个文件
+  >
+  > `>>`表示追加的方式到一个文件中
+
+- 让环境变量立即生效
+
+```sh
+# zshrc表示的使用zsh shell
+source ~/.zshrc
+```
+
+
+
+- 修改和删除已有的变量
+
+```sh
+unset myvar
+```
+
+- 搜素文件
+
+```sh
+whereis who
+who
+locate
+find
+# 文件类型
+# 文件名
+find /etc/ -name interfaces
+# 文件属性: 时间戳
+```
+
+### 查找文件的应用
+
+1. find
+2. chmod
+3. chown
+4. sudo
+
+知道sources.list在文件夹etc下面, 将文件找出来，并且设置为自己可以访问，但其他用户不可以访问
+
+```sh
+# 提供name参数找到文件
+sudo find /etc -name sources.list
+sudo chown shiyanlou /etc/apt/sopurces.list
+sudo chmod 600 /etc/apt/sources.list
+```
+
+### 文件压缩与解压
+
+
+
