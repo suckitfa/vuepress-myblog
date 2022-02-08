@@ -606,8 +606,8 @@ cd /home/shiyanlou
 # 创建一个tar包
 tar -P -cf shiyanlou.tar Desktop
 # -P 保留绝对路径符
-# -c 创建tar包文件
-# -f 指定文件名
+# -c create,创建tar包文件
+# -f filename,指定文件名
 ```
 
 **解包文件**
@@ -617,6 +617,8 @@ tar -P -cf shiyanlou.tar Desktop
 mkdir tardir
 # 解压文件到已经存在的文件夹中
 tar -xf shiyanlou.tar -C tardir
+# -x extract
+
 ```
 
 **支持查看文件内容**
