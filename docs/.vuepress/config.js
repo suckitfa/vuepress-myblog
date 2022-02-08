@@ -105,6 +105,7 @@ function renderSideBar() {
                     ['课程笔记/Vue 常考基础知识点.md', 'Vue 常考基础知识点'],
                     ['课程笔记/go-nuxt-bbs.md', 'go nuxt BBS'],
                     ['课程笔记/Linux基础入门.md', '# Linux基础入门.md'],
+                    ['课程笔记/docker.md', 'Docker.md'],
                 ]
             },
             {
