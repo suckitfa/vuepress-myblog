@@ -499,11 +499,145 @@ find /etc/ -name interfaces
 ```sh
 # 提供name参数找到文件
 sudo find /etc -name sources.list
+# 改变文件的所有者为: shiyanlou
 sudo chown shiyanlou /etc/apt/sopurces.list
+# 修改问价你的访问权限：只可本用户访问
 sudo chmod 600 /etc/apt/sources.list
 ```
 
 ### 文件压缩与解压
+
+linux上常用的打包, 解压工具:zip,tar。 理解以下几个关于文件打包压缩的关键字：
+
+1. 打包：个人理解为将多个文件打包成一个。（通常多个文件放在文件夹中,打包后文件夹及其里面的文件成为了一个新的文件）
+2. 压缩: 将打包好的文件存储空间压缩,去掉多余的空间。
+3. 解压: 将打包压缩好的文件还原成原来的多个文件的。
+
+**总结：由上可知，打包是打包，压缩时压缩。**
+
+### 文件打包压缩常用命令介绍
+
+- zip 
+
+**打包压缩**
+
+```sh
+# 切换到目标工作目录
+cd /home/shiyanlou
+# 将Desktop打包为 shiyanlou.zip
+zip -r -q -o shiyanlou.zip /home/shiyanlou/Desktop
+# 命令参数解释
+# -r : 递归打包文件夹中的文件
+# -q: 不向屏幕输出任何内容
+# -o: 输出文件
+
+# 查看文件大小
+du -h shiyanlou.zip
+
+# 查看文件类型
+file shiyanlou.zip
+```
+
+![image-20220208104533770](./img/image-20220208104533770.png)
+
+**设置压缩级别**
+
+```sh
+cd /home/shiyanlou
+# 设置为9级压缩：1-9， 9表示：体积最小，速度最慢
+zip -r -9 -q -o shiyanlou2.zip Desktop
+
+# 查看文件的信息
+du -h -d 0 *.zip ~ | sort
+# -h: --human-readable
+# -d: --max-depth 文件折叠的深度
+
+# 注：文件的不是很大，打包后的效果差异不大
+```
+
+![image-20220208104853105](./img/image-20220208104853105.png)
+
+**设置压缩密码**
+
+```sh
+# 设置压缩密码
+zip -r -e -o shiyanlou_encryption.zip Desktop
+# 注：这里没有了 -q 这个参数，也就是说在压缩过程中我们需要打印信息
+```
+
+![image-20220208105329861](./img/image-20220208105329861.png)
+
+即使加了，也没什么用
+
+![image-20220208105751044](/Users/bobtang/Library/Application Support/typora-user-images/image-20220208105751044.png)
+
+- unzip
+
+```sh
+# 解压文件
+unzip shiyanlou.zip
+# 解压shiyanlou.zip,输出到文件夹:ziptest
+unzip -q shiyanlou.zip -d ziptest
+# 查看压缩包的内容
+unzip -l  shiyanlou.zip 
+```
+
+![image-20220208110259497](./img/image-20220208110259497.png)
+
+![image-20220208110201078](./img/image-20220208110201078.png)
+
+**注意：**
+
+**压缩中文内容的时候，window默认采用GBK编码， 而Linux采用UTF-8编码**， 如果编码不当会产生乱码。因此，可以指定对应编码
+
+```sh
+# 大写的O指定编码格式
+unzip -O GBK 中文压缩文件.zip
+```
+
+- tar
+
+支持7z,  gzip, xz, bzip2文件, 具体参数看文档 man tar
+
+**打包**
+
+```sh
+cd /home/shiyanlou 
+# 创建一个tar包
+tar -P -cf shiyanlou.tar Desktop
+# -P 保留绝对路径符
+# -c 创建tar包文件
+# -f 指定文件名
+```
+
+**解包文件**
+
+```sh
+# 创建一个文件夹
+mkdir tardir
+# 解压文件到已经存在的文件夹中
+tar -xf shiyanlou.tar -C tardir
+```
+
+**支持查看文件内容**
+
+```sh
+tar -tf shiyanlou.tar
+```
+
+![image-20220208113941554](./img/image-20220208113941554.png)
+
+### 文件打包与解压总结
+
+```sh
+zip something.zip something (打包目录 -r)
+unzip something.zip -d 指定目录
+
+tar
+打包: tar -cf something.tar	something
+解包: tar -xf something.tar
+指定路径： tar -xf something -C midr
+```
 
 
 
