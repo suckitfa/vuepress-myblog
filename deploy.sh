@@ -7,7 +7,7 @@ set -e
 npm run build
 
 cd docs/.vuepress/
-scp -r dist root@121.5.104.77:/root/www
+# scp -r dist root@121.5.104.77:/root/www
 
 # 进入生成的文件夹
 cd dist
@@ -20,6 +20,7 @@ git commit -m 'deploy'
 
 # 如果你想要部署到 https://USERNAME.github.io
 git push -f git@github.com:suckitfa/suckitfa.github.io.git master
+# git push -f git@github.com:realguangyuan/realguangyuan.io.git master
 
 # 如果发布到 https://USERNAME.github.io/<REPO>  REPO=github上的项目
 # git push -f git@github.com:USERNAME/<REPO>.git master:gh-pages
