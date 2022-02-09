@@ -20,6 +20,8 @@
 
 **我们编写dockerfile交给docker编译执行生成image, imageu运行后成为container**
 
+![image-20220209092631640](./img/image-20220209092631640.png)
+
 ### Docker的工作原理
 
 1. docker build
