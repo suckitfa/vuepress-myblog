@@ -85,24 +85,40 @@ docker images
 
 ![image-20220208205057979](./img/image-20220208205057979.png)
 
-**启动, 停止，重启，重新进入镜像**
+**进入镜像**
 
 ```sh
-# 第一次启动镜像
+# 启动images , 此时，iamges ---> container
 docker run -it centos:latest /bin/bash
 # -i 表示交互式的
 # -t 表示开启一个新的终端
 # -d 表示后台运行
+```
+
+**启动, 停止，重启容器**
+
+```sh
+# 连接容器
+# 重新进入容器,退出后会让容器暂停运行
+docker attach container_name/container_id
 # docker exec 退出后不会暂停容器的运行
+# docker exec -it container_id /bin/bash
 docker exec -it centos:latest /bin/bash
 
-
-# # 停止镜像运行
+# 停止容器运行
 docker stop container_name/container_id
-# 镜像重新运行
+# 重新启动运行
 docker restart container_name/container_id
-# 重新进入镜像
-docker attach container_name/container_id
+```
+
+**容器的导入与导出**
+
+```sh
+# 导出容器
+# docker export container_id > 文件名.tar
+docker export 0a4a0a0acdad > centos.tar
+# 导入容器
+cat docker/ubantu.tar | docker import -test/ubuntu:v1
 ```
 
 
@@ -121,12 +137,25 @@ docker ps -a
 docker commmit -m "centos with git"
 ```
 
-**镜像打包成文件&本地加载镜像文件**
+**容器打包成镜像文件存在本地&本地加载镜像文件**
 
 ```sh
+# 打包
+# 将容器打包成镜像文件下载到本地
 docker save -o docker.tar xiaohu/centos:git
+# -o 表示输出，后面紧跟文件名
+# 或者使用如下命令 
+docker export container_id > 文件名.tar
+
+# 加载
+# 加载本地镜像文件到docker
 docker load -i docker.tar
+# 或者使用命令 docker import
+docker import - test/centos:v1.0
+# test/centos:v1.0 给docker指定文件路径和tag
 ```
+
+![image-20220209140039394](./img/image-20220209140039394.png)
 
 **查看镜像运行的日志**
 
