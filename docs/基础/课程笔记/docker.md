@@ -15,10 +15,23 @@
 - docker看成一个编译器
 
 - dockerfile 看成image的源代码
+
 - container 运行起来的程序
+
 - image 理解为可执行程序
 
-**我们编写dockerfile交给docker编译执行生成image, imageu运行后成为container**
+  ```sh
+  # 查看本地所有的镜像
+  docker images
+  # 结合git仓库的概念来理解
+  # repository 镜像的仓库源， 可认为是程序
+  # tag 镜像的标签： 用于区别同仓库的不同版本, 认为程序的不同版本
+  # image id 用于标识镜像
+  ```
+
+  ![image-20220209141945535](./img/image-20220209141945535.png)
+
+**我们编写dockerfile交给docker编译执行生成image, image运行后成为container**
 
 ![image-20220209092631640](./img/image-20220209092631640.png)
 
@@ -110,6 +123,59 @@ docker stop container_name/container_id
 # 重新启动运行
 docker restart container_name/container_id
 ```
+
+**更新镜像**
+
+```sh
+# 将镜像跑起来
+docker run -it centos:centos7 /bin/bash
+
+# 安装go的环境
+cd /user/local
+yum install wget # 该工具用于获取golang的安装包
+wget https://dl.google.com/go/go1.13.5.linux-amd64.tar.gz # 获取golang的安装包
+tar -xzf go1.13.5.linux-amd64.tar.gz -C /usr/local # 解压tar文件到 /user/local
+
+# 为golang添加系统环境变量
+vi /etc/profile
+# 将以下带export的语句加入到 /ect/profile文件中 (不带 #)
+# export GO111MODULE=on
+# export GOROOT=/usr/local/go 
+# export GOPATH=/home/gopath
+# export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+# 执行以下命令,home文件夹下，创建go开发文件夹
+cd home
+mkdir gopath
+
+# 让 /ect/profile生效
+source /etc/profile
+# 执行命令, 修改golang代理
+go env -w GOPROXY=https://goproxy.cn,direct
+# 测试golang 环境
+cd /home/gopath
+vi hello.go
+```
+
+```go
+package main
+import "fmt"
+func main() {
+  fmt.Println("hello centos golang!")
+}
+```
+
+```sh
+go run hello.go
+```
+
+
+
+![image-20220209143911244](./img/image-20220209143911244.png)
+
+![image-20220209144024511](./img/image-20220209144024511.png)
+
+![image-20220209145456643](./img/image-20220209145456643.png)
 
 **容器的导入与导出**
 
