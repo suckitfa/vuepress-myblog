@@ -157,7 +157,7 @@ docker import - test/centos:v1.0
 
 ![image-20220209140039394](./img/image-20220209140039394.png)
 
-**查看镜像运行的日志**
+**查看容器运行的日志**
 
 ```sh
 docker logs -f image_id
@@ -166,9 +166,33 @@ docker logs -f image_id
 
 ![image-20220208212543392](./img/image-20220208212543392.png)
 
+**查看容器的运行进程**
+
+```sh
+docker top container_id
+```
+
+
+
 **计算机本地端口的映射**
 
+```sh
+docker pull training/webapp
+docker run -d -P traning/webapp python app.py
+
+# 显示所有的运行镜像
+docker ps -a
+# 查看端口配置
+docker port container_id
+```
+
+
+
+![image-20220209140809516](./img/image-20220209140809516.png)
+
 ![image-20220208212319424](./img/image-20220208212319424.png)
+
+![image-20220209141550846](./img/image-20220209141550846.png)
 
 ### Docker的应用举例
 
