@@ -268,6 +268,37 @@ docker port container_id
 
 ![image-20220208210240604](./img/image-20220208210240604.png)
 
+### Dockerfile
+
+可以将cokerfile看成是docker的批处理命令，类似于Linux的shell文件， 或者windows的bat文件
+
+**以配置一个Nginx为例**
+
+创建文件夹dockderfiletest&文件dockerfile
+
+文件结构目录如下：
+
+![image-20220214201459600](./img/image-20220214201459600.png)
+
+`dockerfile`文件内容
+
+```sh
+FROM nginx
+RUN echo '这是一个本地创建的一个nginx镜像' > /usr/share/nginx/html/index.html
+```
+
+shell命令
+
+```sh
+docker build -t nginx:v3 .
+```
+
+
+
+### docker machine
+
+### docker compose
+
 ### 参考资料
 
 - 知乎小灰： https://zhuanlan.zhihu.com/p/187505981

@@ -643,3 +643,114 @@ tar
 
 
 
+## 文件操作与磁盘管理
+
+- df du mount 命令的使用
+- 磁盘的相关知识学习
+
+
+
+#### 查看磁盘容量
+
+- du
+
+>  estimate file space usage
+
+```sh
+du -h
+# -h --human-readable
+# -a --all
+#  -s --summarize
+```
+
+- df
+
+>  report file system disk space usage
+
+```sh
+df -h
+```
+
+#### 磁盘的管理
+
+> Linux中一切即文件
+
+```sh
+dd
+# 作用：复制文件，根据参数进行转换
+# 默认从标准输入读入，并写入到标准输出中, 以下参数指定输入输出源：
+# if input file
+# of output file
+# bs block size , 默认为1byte , 指定块大小, K M ,G
+# count 指定块的个数
+```
+
+```sh
+dd of=test bs=10 count=1
+# 
+```
+
+```sh
+# 从标准输入读入内容，并且转为大写，写入shit文件中
+dd if=/dev/stdin of=shit bs=10 count=1 conv=ucase
+## hello world
+
+```
+
+![image-20220213113415959](./img/image-20220213113415959.png)
+
+- 创建虚拟磁盘
+
+```sh
+dd if=/dev/zero of=virtual.img bs=1M count=256
+du -h virtual.img
+```
+
+![image-20220213113639616](./img/image-20220213113639616.png)
+
+格式化磁盘
+
+> 文件系统的类型: 
+>
+> ext4
+
+```sh
+sudo mkfs.ext4 virtual.img
+# 将virtual.img  格式化为ext4的文件系统
+```
+
+![image-20220213113803344](./img/image-20220213113803344.png)
+
+- **挂载磁盘**??
+
+用户在系统上打开一个文件以前，必须先进性挂载，使用mount命令进行挂载。
+
+mount：告诉系统，文件已经准备好了。
+
+挂在好的问价，目录，设备，以及特殊的文件即可被用户使用
+
+```sh
+sudo mount
+```
+
+- **磁盘分区**???
+
+```sh
+sudo fdisk -l
+```
+
+找到当前目录下占用最大的前10个文件
+
+```sh
+du -hsx * | sort -rh | head -10
+# | 管道符，连接输出结果
+# du -hsx *
+# -h
+# -s
+# -x
+# sort -rh
+# -r --reverse reverse the result of comparisons
+# -h --humna-numeric-sort compare human readable numbers
+# head -10
+```
+

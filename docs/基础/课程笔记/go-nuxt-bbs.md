@@ -560,3 +560,59 @@ export default {
 ```go
 ```
 
+### Aixos插件封装
+
+```js
+import qs from 'qs'
+
+export default function({ $axios, $toast, app }) {
+    // axios自动对请求参数编码
+    $axios.onRequest((config) => {
+        config.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+
+
+        config.transformRequest = [
+            function(data) {
+                if (process.client && data instanceof FormData) {
+                    return data
+                }
+                data = qs.stringify(data)
+                return data
+            }
+        ]
+    })
+
+    $axios.onResponse((response) => {
+        if (response.status !== 200) {
+            return Promise.reject(response)
+        }
+        const jsonResult = response.data
+        if (jsonResult.success) {
+            return Promise.resolve(jsonResult.data)
+        } else {
+            return Promise.reject(jsonResult)
+        }
+    })
+}
+```
+
+nuxt.config.js 配置aixos插件
+
+```js
+ plugins: [
+    '~/plugins/axios'
+  ],
+```
+
+
+
+### 登入的机制
+
+Go语言的服务端和Nuxtjs的页面服务无法共享session, 所以登入状态无法使用session来存储，所以引入了token机制. 用户登入成功后，为该用户生成一个token , 相当于tokenId, 通过其找到对应的用户
+
+**验证流程:**
+
+1. 调用登录接口，验证用户名密码，验证成功后接口返回授权令牌(userToken)；
+2. 前端网页收到授权令牌(userToken)后，将他们存储到 cookie 中；
+3. 前端网页在每次请求后台接口的时候检查 cookie 中是否有`userToken`，如果有就带上；
+4. 服务端在收到网页中的接口请求时，检查请求中是否有合法的`userToken`，没有就返回错误要求网页进行登录；
