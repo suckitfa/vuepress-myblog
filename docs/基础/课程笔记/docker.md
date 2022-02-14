@@ -270,7 +270,7 @@ docker port container_id
 
 ### Dockerfile
 
-可以将dokerfile看成是docker的批处理命令，类似于Linux的shell文件， 或者windows的bat文件
+可以将dockerfile看成是docker的批处理命令，类似于Linux的shell文件， 或者windows的bat文件
 
 **以配置一个Nginx为例**
 
