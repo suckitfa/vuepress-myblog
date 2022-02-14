@@ -274,7 +274,7 @@ docker port container_id
 
 **以配置一个Nginx为例**
 
-创建文件夹dockderfiletest&文件dockerfile
+创建文件夹dockerfiletest&文件dockerfile
 
 文件结构目录如下：
 
