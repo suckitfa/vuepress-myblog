@@ -6,4 +6,8 @@
 
 ![image-20220217154842524](./img/image-20220217154842524.png)
 
-**github的hosts地址： https://gitee.com/isevenluo/github-hosts/raw/master/hosts**
+#### 相关下载资源
+
+- **switch的下载地址:https://swh.app/**
+
+- **github的hosts地址： https://gitee.com/isevenluo/github-hosts/raw/master/hosts**

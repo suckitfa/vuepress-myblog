@@ -135,6 +135,12 @@ function renderSideBar() {
                     ['/基础/认知/01-学会如何学习.md', '01-学会如何学习'],
                 ]
             },
+            {
+                title: "工具",
+                children: [
+                    ['/基础/工具/switchhosts.md', 'switchhosts解决github访问慢'],
+                ]
+            },
         ],
 
     } // 侧边栏配置
