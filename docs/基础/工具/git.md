@@ -17,9 +17,16 @@ cat ~/.ssh/id_rsa.pub
 ssh -T git@github.com
 # Hi suckitfa! You've successfully authenticated, but GitHub does not provide shell access.
 ```
+接下来注意要点，我们是要通过ssh协议来上传代码到git远程仓库的。[选择中间这个]
+![ssh-git](./img/ssh-git.png)
+```sh
+# 添加远程仓库 适合新项目添加远程地址
+git remote origin add 仓库地址
 
-接下来就可以开启你的git之路了
-
+# 修改：先删除后添加 以下命令适合老项目中切换为远程仓库
+git remote rm origin
+git remote origin add 仓库地址
+```
 
 
 ### git的一些简单操作
