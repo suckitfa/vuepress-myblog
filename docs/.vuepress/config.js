@@ -141,6 +141,7 @@ function renderSideBar() {
                     ['/基础/工具/switchhosts.md', 'switchhosts解决github访问慢'],
                     ['/基础/工具/homebrew.md', 'homebrew安装'],
                     ['/基础/工具/git.md', 'git'],
+                    ['/基础/工具/githubpage.md', 'GithubPage'],
                 ]
             },
         ],
