@@ -24,6 +24,13 @@
 - https://yuchengkai.cn/docs/frontend/#%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B
 - https://javascript.ruanyifeng.com/stdlib/object.html#toc9
 
+### 国外资源
+- https://hackernoon.com
+- medium
+- Stackoverflow
+- youtube
+
+
 ### 有意思的博客
 - https://go123.live/
 

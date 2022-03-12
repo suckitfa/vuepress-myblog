@@ -4,5 +4,8 @@
         "string": "cpp",
         "iosfwd": "cpp"
     },
-    "C_Cpp.errorSquiggles": "Disabled"
+    "C_Cpp.errorSquiggles": "Disabled",
+    "cSpell.words": [
+        "Stackoverflow"
+    ]
 }
