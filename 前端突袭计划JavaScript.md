@@ -55,7 +55,8 @@ https://mp.weixin.qq.com/s?__biz=MzI3ODU4MzQ1MA==&mid=2247485472&idx=2&sn=4bafbf
 
 导师的博客： https://ringcrl.github.io/cs-notes
 
-
+### 系统性的学习
+- https://es6.ruanyifeng.com/#docs/intro
 
 ### 高频面试题
 
