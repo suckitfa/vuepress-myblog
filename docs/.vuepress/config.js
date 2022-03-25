@@ -132,6 +132,7 @@ function renderSideBar() {
                     ['CSS/01-盒模型和BFC&IFC.md', '01-盒模型和BFC&IFC'],
                     ['CSS/02-选择器.md', '02-选择器'],
                     ['CSS/03-flex布局.md', '03-flex布局'],
+                    ['CSS/重排和重绘.md', '重排和重绘基本概念'],
                 ]
             }, {
                 title: "认知",
