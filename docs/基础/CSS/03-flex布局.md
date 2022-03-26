@@ -11,7 +11,7 @@ flex用来生成flex容器，是一种很好的布局方案，对移动端适配
 
 ### flex容器的属性 (6个)
 - ### flex-direction
-    
+  
     决定子元素在flex容器中主轴的排列方向。主轴默认是水平从左到右的也即是row的方向。
     
     - row (默认值)
@@ -20,7 +20,7 @@ flex用来生成flex容器，是一种很好的布局方案，对移动端适配
     - column-reverse
     
 - ### **justify-content**
-    
+  
     定义了项目在主轴上的**对齐**方式
     
     - flex-start （默认）
@@ -85,6 +85,8 @@ flex用来生成flex容器，是一种很好的布局方案，对移动端适配
     - space-between
     - space-around
     - stretch
+
+    ![image-20220326110325196](./img/image-20220326110325196.png)
 
 - ### **flex-flow**
 
